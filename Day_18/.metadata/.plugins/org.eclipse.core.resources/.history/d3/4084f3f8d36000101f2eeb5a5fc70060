@@ -1,0 +1,268 @@
+package com.dkte;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class Tester {
+
+	    static Scanner sc = new Scanner(System.in);
+	
+	    private static List<Artist> artists = new ArrayList<>();
+	    private static List<Album> albums = new ArrayList<>();
+	    private static List<Track> tracks = new ArrayList<>();
+
+	    public static void addArtist() {
+	        System.out.print("Artist ID: ");
+	        int id = sc.nextInt();
+	        
+	        System.out.print("Artist Name: ");
+	        sc.nextLine();
+	        String name = sc.nextLine();
+	        
+	        
+	        try (Connection con = DbUtil.getConnection()) {
+	        	String sql1 = "select * from artist where artist_id = ?";
+	            try (PreparedStatement ps = con.prepareStatement(sql1)) {
+	                ps.setInt(1, id);
+	                ResultSet rs = ps.executeQuery();
+	                if(rs.next()) {
+	                	System.out.println("Artist id already exist..... Please try with different id.");
+	                	return;
+	                }
+	                
+	            }
+	            
+	            String sql = "INSERT INTO Artist (artist_id, name) VALUES (?, ?)";
+	            try (PreparedStatement ps = con.prepareStatement(sql)) {
+	                ps.setInt(1, id);
+	                ps.setString(2, name);
+	                int rows = ps.executeUpdate();
+	                System.out.println("Artist added: " + rows);
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    
+	    private static void addAlbum() {
+	        System.out.print("Enter Album ID: ");
+	        int id = sc.nextInt();
+	        sc.nextLine();
+	      	        
+	        System.out.print("Enter Album Title: ");
+	        String title = sc.nextLine();
+	        
+	        try(Connection con = DbUtil.getConnection()){
+	        	String sql="INSERT INTO ALBUM (album_id,title) VALUES (?,?)";
+	        	try(PreparedStatement ps=con.prepareStatement(sql)){
+	        		ps.setInt(1, id);
+	        		ps.setString(2, title);
+	        		int rows=ps.executeUpdate();
+	        		System.out.println("Album Added :"+ rows);
+	        	}
+	        }catch(Exception e) {
+	        	e.printStackTrace();
+	        }
+	        
+	    
+	    }
+
+	    private static void addTrack() {
+	    	
+	        System.out.print("Enter Track ID: ");
+	        int tid = sc.nextInt();
+	        sc.nextLine();
+	        
+	        System.out.print("Enter Track Title: ");
+	        String title = sc.nextLine();
+	        
+	        System.out.print("Enter Album ID: ");
+	        int aid = sc.nextInt();
+	        
+	        System.out.print("Enter Artist ID: ");
+	        int arid = sc.nextInt();
+	        sc.nextLine();
+	        
+	        try(Connection con=DbUtil.getConnection()){
+	        	String sql="INSERT INTO TRACK (track_id,title,album_id,artist_id) VALUES (?,?,?,?)";
+	        	try(PreparedStatement ps=con.prepareStatement(sql)){
+	        		ps.setInt(1, tid);
+	        		ps.setString(2, title);
+	        		ps.setInt(3, aid);
+	        		ps.setInt(4, arid);
+	        		
+	        	}
+	        }catch (Exception e) {
+				e.printStackTrace();
+			}
+	    }
+
+	    public static void displayArtists() {
+	    	List<Artist> artistList = new ArrayList<>();
+	        try (Connection con = DbUtil.getConnection()) {
+	            String sql = "SELECT * FROM Artist";
+	            try (PreparedStatement ps = con.prepareStatement(sql);
+	                 ResultSet rs = ps.executeQuery()) {
+	                System.out.println("--- Artists ---");
+	                while (rs.next()) {
+	                    Artist artist = new Artist();
+	                    artist.setArtistId(rs.getInt(1));
+	                    artist.setName(rs.getString(2));
+	                    artistList.add(artist);
+	                    
+	                    
+	                }
+	                
+	                artistList.forEach(a -> System.out.println(a.toString()));
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    private static void displayAlbums() {
+	    	try (Connection con = DbUtil.getConnection()) {
+	            String sql = "SELECT * FROM Album";
+	            try (PreparedStatement ps = con.prepareStatement(sql);
+	                 ResultSet rs = ps.executeQuery()) {
+	                System.out.println("---Albums ---");
+	                while (rs.next()) {
+	                    System.out.println(rs.getInt("album_id") + ", " + rs.getString("title"));
+	                }
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    private static void displayTracks() {
+	  
+	          try (Connection con = DbUtil.getConnection()) {
+	              String sql = "SELECT * FROM Track";
+	              try (PreparedStatement ps = con.prepareStatement(sql);
+	                   ResultSet rs = ps.executeQuery()) {
+	                  System.out.println("--- Tracks ---");
+	                  while (rs.next()) {
+	                      System.out.println(rs.getInt("track_id") + ", " + rs.getString("title") + ", Album ID: " +rs.getInt("album_id") + ", Artist ID: " + rs.getInt("artist_id"));
+	                  }
+	              }
+	          } catch (Exception e) {
+	              e.printStackTrace();
+	          }
+	     
+	    }
+
+	    public static void viewTracksByArtist() {
+	        System.out.print("Enter Artist ID: ");
+	        int artistId = sc.nextInt();
+	
+	        try (Connection con = DbUtil.getConnection()) {
+	            String sql = "SELECT * FROM Track WHERE artist_id = ?";
+	            try (PreparedStatement ps = con.prepareStatement(sql)) {
+	                ps.setInt(1, artistId);
+	                try (ResultSet rs = ps.executeQuery()) {
+	                    System.out.println("--- Tracks by Artist ---");
+	                    while (rs.next()) {
+	                        System.out.println(rs.getInt("track_id") + ", " + rs.getString("title"));
+	                    }
+	                }
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    private static void viewTracksByAlbum() {
+	    	 
+	            System.out.print("Enter Album ID: ");
+	            int albumId= sc.nextInt();
+	    
+	            try (Connection con = DbUtil.getConnection()) {
+	                String sql = "SELECT * FROM Track WHERE album_id = ?";
+	                try (PreparedStatement ps = con.prepareStatement(sql)) {
+	                    ps.setInt(1, albumId);
+	                    try (ResultSet rs = ps.executeQuery()) {
+	                        System.out.println("--- Tracks by Album ---");
+	                        while (rs.next()) {
+	                            System.out.println(rs.getInt("album_id") + ", " + rs.getString("title"));
+	                        }
+	                    }
+	                }
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        
+	    }
+	    
+	    
+	    public static int menu(Scanner sc) {
+	    	
+	    	    System.out.println("\nMusic Streaming Management System :");
+	            System.out.println("1. Add a new artist");
+	            System.out.println("2. Add a new album");
+	            System.out.println("3. Artist adds a track for the album");
+	            System.out.println("4. Display all artists");
+	            System.out.println("5. Display all albums");
+	            System.out.println("6. View all tracks for a given artist");
+	            System.out.println("7. Display all tracks");
+	            System.out.println("8. View all tracks for a given album");
+	            System.out.println("9. Exit\n ");
+	            
+	            System.out.print("Enter choice: ");
+	            int ch= sc.nextInt();
+	            
+	           return ch;
+	    }
+	    public static void main(String[] args) {
+	    	
+	       
+	        int ch;
+
+	        
+	        while(true) {
+	         
+            switch (ch=menu(sc)) {
+	                case 1 : addArtist();
+	                		break;
+
+	                case 2 : addAlbum();
+            				break;
+            		
+	                case 3 : addTrack();
+            				break;
+	                
+	                case 4 : displayArtists();
+            				break;
+            		
+	                case 5 : displayAlbums();
+            				break;
+            		
+	                case 6 :viewTracksByArtist();
+            				break;
+	                
+	                case 7 : displayTracks();
+            				break;
+            		
+	                case 8 : viewTracksByAlbum();
+            				break;
+            		
+	                case 9 : System.out.println("Exiting...");
+	                		break;
+            		
+	                default :System.out.println("Invalid choice. Please Enter Valid Choice Again........");
+            				break;
+	            }
+	    }
+	    
+	   }
+
+	
+}
+
+

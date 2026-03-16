@@ -1,0 +1,12 @@
+package com.dkte;
+
+public class Artist {
+
+	
+	int artist_id;
+	String name;
+	
+	
+	
+	
+}

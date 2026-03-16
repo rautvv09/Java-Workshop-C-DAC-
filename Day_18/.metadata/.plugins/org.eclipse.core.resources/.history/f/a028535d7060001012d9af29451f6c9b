@@ -1,0 +1,10 @@
+package com.dkte;
+
+public class Album {
+
+	
+	int album_id;
+	String title;
+	
+	
+}

@@ -1,0 +1,11 @@
+package com.dkte;
+
+public class Track {
+
+	
+	
+  int track_id;
+   String title;
+   int album_id;
+   int artist_id;
+}

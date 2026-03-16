@@ -1,0 +1,8 @@
+package com.dkte;
+
+public class Track {
+
+	
+	
+	(track_id, title, album_id, artist_id)
+}

@@ -1,0 +1,38 @@
+-- Create the database
+CREATE DATABASE IF NOT EXISTS music_db;
+USE music_db;
+
+-- Create Artist table 
+CREATE TABLE Artist (
+    artist_id INT,
+    name VARCHAR(100)
+);
+
+-- Create Album table  
+CREATE TABLE Album (
+    album_id INT,
+    title VARCHAR(100)
+);
+
+-- Create Track table  
+CREATE TABLE Track (
+    track_id INT,
+    title VARCHAR(100),
+    album_id INT,
+    artist_id INT
+);
+
+-- Insert data into Artist table
+INSERT INTO Artist (artist_id, name) VALUES
+(1, 'Arijit Singh'),
+(2, 'Taylor Swift');
+
+-- Insert data into Album table
+INSERT INTO Album (album_id, title) VALUES
+(101, 'Soulful Vibes'),
+(102, 'Evermore');
+
+-- Insert data into Track table
+INSERT INTO Track (track_id, title, album_id, artist_id) VALUES
+(1001, 'Tum Hi Ho', 101, 1),
+(1002, 'Willow', 102, 2);

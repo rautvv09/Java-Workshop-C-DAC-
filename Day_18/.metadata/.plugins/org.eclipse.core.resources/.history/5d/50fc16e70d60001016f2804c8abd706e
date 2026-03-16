@@ -1,0 +1,257 @@
+package DEMO1;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.Scanner;
+
+public class Program01 {
+    private static Scanner sc = new Scanner(System.in);
+    private static User curUser = null;
+
+    public static void signUp() {
+        System.out.println("User Registration");
+        System.out.print("Name: ");
+        String name = sc.next();
+        System.out.print("Email: ");
+        String email = sc.next();
+        System.out.print("Passwd: ");
+        String passwd = sc.next();
+        System.out.print("Addr: ");
+        String addr = sc.next();
+
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "INSERT INTO users(id, name, email, passwd, addr) VALUES (default, ?, ?, ?, ?)";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setString(1, name);
+                stmt.setString(2, email);
+                stmt.setString(3, passwd);
+                stmt.setString(4, addr);
+                int count = stmt.executeUpdate();
+                System.out.println("User Registered: " + count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void signIn() {
+        System.out.print("Email: ");
+        String email = sc.next();
+        System.out.print("Passwd: ");
+        String passwd = sc.next();
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "SELECT * FROM users WHERE email=? AND passwd=?";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setString(1, email);
+                stmt.setString(2, passwd);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        int id = rs.getInt("id");
+                        String addr = rs.getString("addr");
+                        String name = rs.getString("name");
+                        curUser = new User(id, name, email, passwd, addr);
+                        System.out.println("Login Successful.");
+                    } else {
+                        System.out.println("Login Failed.");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void signOut() {
+        curUser = null;
+        System.out.println("Signed Out Successfully.");
+    }
+
+    public static void addProduct() {
+        if (!isAdmin()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "INSERT INTO products VALUES (default, ?, ?)";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                System.out.print("Enter Product Name: ");
+                String name = sc.next();
+                System.out.print("Enter Product Price: ");
+                double price = sc.nextDouble();
+                stmt.setString(1, name);
+                stmt.setDouble(2, price);
+                int count = stmt.executeUpdate();
+                System.out.println("Rows Inserted: " + count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateProduct() {
+        if (!isAdmin()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "UPDATE products SET name=?, price=? WHERE id=?";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                System.out.print("Enter Product Id: ");
+                int id = sc.nextInt();
+                System.out.print("Enter New Name: ");
+                String name = sc.next();
+                System.out.print("Enter New Price: ");
+                double price = sc.nextDouble();
+                stmt.setString(1, name);
+                stmt.setDouble(2, price);
+                stmt.setInt(3, id);
+                int count = stmt.executeUpdate();
+                System.out.println("Rows Updated: " + count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteProduct() {
+        if (!isAdmin()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "DELETE FROM products WHERE id=?";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                System.out.print("Enter Product Id: ");
+                int id = sc.nextInt();
+                stmt.setInt(1, id);
+                int count = stmt.executeUpdate();
+                System.out.println("Rows Deleted: " + count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void displayAllProducts() {
+        if (!isLoggedIn()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "SELECT * FROM products";
+            try (PreparedStatement stmt = con.prepareStatement(sql);
+                 ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    System.out.println(rs.getInt("id") + ", " + rs.getString("name") + ", " + rs.getDouble("price"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void findProductByName() {
+        if (!isLoggedIn()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            System.out.print("Enter Product Name: ");
+            String name = sc.next();
+            String sql = "SELECT * FROM products WHERE name LIKE ?";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setString(1, "%" + name + "%");
+                try (ResultSet rs = stmt.executeQuery()) {
+                    boolean found = false;
+                    while (rs.next()) {
+                        found = true;
+                        System.out.println(rs.getInt("id") + ", " + rs.getString("name") + ", " + rs.getDouble("price"));
+                    }
+                    if (!found) System.out.println("Product Not Found");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void placeOrder() {
+        if (!isCustomer()) return;
+        System.out.print("Enter Product Id to Purchase: ");
+        int prodId = sc.nextInt();
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "INSERT INTO orders VALUES(default, ?, ?, NOW(), 'Pending')";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setInt(1, curUser.getId());
+                stmt.setInt(2, prodId);
+                int count = stmt.executeUpdate();
+                System.out.println("Orders Placed: " + count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showCustomerOrders() {
+        if (!isCustomer()) return;
+        try (Connection con = DbUtil.getConnection()) {
+            String sql = "SELECT p.id, p.name, p.price, o.order_dt, o.status FROM products p INNER JOIN orders o ON o.prod_id = p.id WHERE o.user_id=?";
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                stmt.setInt(1, curUser.getId());
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        System.out.println(rs.getInt("id") + ", " + rs.getString("name") + ", " + rs.getDouble("price") + ", " + rs.getTimestamp("order_dt") + ", " + rs.getString("status"));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static boolean isAdmin() {
+        if (curUser == null) {
+            System.out.println("User is not Logged In.");
+            return false;
+        }
+        if (!curUser.getName().equalsIgnoreCase("Admin")) {
+            System.out.println("You are not Admin.");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isCustomer() {
+        return isLoggedIn() && !curUser.getName().equalsIgnoreCase("Admin");
+    }
+
+    private static boolean isLoggedIn() {
+        if (curUser == null) {
+            System.out.println("User is not Logged In.");
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("\n--- E-Commerce Menu ---");
+            System.out.println("1. Sign Up");
+            System.out.println("2. Sign In");
+            System.out.println("3. Sign Out");
+            System.out.println("4. Admin - Add Product");
+            System.out.println("5. Admin - Delete Product");
+            System.out.println("6. Admin - Update Product");
+            System.out.println("7. Customer - Display All Products");
+            System.out.println("8. Customer - Find Product");
+            System.out.println("9. Customer - Place Order");
+            System.out.println("10. Customer - Show My Orders");
+            System.out.println("0. Exit");
+            System.out.print("Choose option: ");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1: signUp(); break;
+                case 2: signIn(); break;
+                case 3: signOut(); break;
+                case 4: addProduct(); break;
+                case 5: deleteProduct(); break;
+                case 6: updateProduct(); break;
+                case 7: displayAllProducts(); break;
+                case 8: findProductByName(); break;
+                case 9: placeOrder(); break;
+                case 10: showCustomerOrders(); break;
+                case 0: System.out.println("Thank you. Exiting..."); return;
+                default: System.out.println("Invalid Option");
+            }
+        }
+    }
+}
