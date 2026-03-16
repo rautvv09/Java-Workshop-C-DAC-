@@ -1,0 +1,24 @@
+package com.dkte;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class MyWindow extends JFrame{
+
+	private JLabel nameLabel;
+	private JTextField nameTextField;
+	private JLabel addrLabel;
+	private JTextField addrTextField;
+	private JLabel genderLabel;
+	private JRadioButton maleRadioButton,femaleRadioButton;
+	private ButtonGroup genderButtonGroup;
+	private JLabel langLabel;
+	private JComboBox<String> langComboBox;
+	
+	private JButton submitButton;
+}

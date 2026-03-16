@@ -1,0 +1,20 @@
+package com.dkte;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class EssayDialog extends JDialog {
+
+	private JLabel titleLabel;
+	private JTextField titleField;
+	private JTextArea essayTextArea;
+	private JButton submitButton;
+	private JScrollPane essayJScrollPane;
+	private String title="";
+	private String essay="";
+}

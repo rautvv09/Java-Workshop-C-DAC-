@@ -1,0 +1,49 @@
+package com.dkte;
+
+import java.awt.GraphicsConfiguration;
+import java.awt.TextField;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class MyWindow extends JFrame{
+
+	private JLabel nameLabel;
+	private JTextField nameTextField;
+	private JLabel addrLabel;
+	private JTextField addrTextField;
+	private JLabel genderLabel;
+	private JRadioButton maleRadioButton,femaleRadioButton;
+	private ButtonGroup genderButtonGroup;
+	private JLabel langLabel;
+	private JComboBox<String> langComboBox;
+	
+	private JButton submitButton;
+
+	public MyWindow() {
+	
+		this.setTitle("CV");
+		this.setSize(600,400);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+		this.setLayout(null);
+
+		nameLabel =new JLabel("Name :");
+		nameLabel.setBounds(100,50,100,30);
+		this.add(nameLabel);
+		
+		nameTextField=new JTextField();
+		nameTextField.setBounds(250,50,200,30);
+		
+	
+	}
+	
+	
+	
+	
+}

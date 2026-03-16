@@ -1,0 +1,36 @@
+package com.dkte;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Window extends JFrame{
+		
+	private JLabel num1Label;
+	private JTextField num1TextField;
+	private JLabel num2Label;
+	private JTextField num2TextField;
+	private JButton addButton,subButton,mulButton;
+	
+	
+	
+	 public Window() {
+		 this.setTitle("Assignment 1 :");
+		 this.setSize(600,500);
+		 this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		 
+		 this.setLayout(null);
+ 
+		 num1Label=new JLabel("Num 1:");
+		 num1Label.setBounds(100,50,100,30);
+		 this.add(num1Label);
+		 
+		 
+		 
+	 }
+	 
+	 
+	 
+	
+}

@@ -1,0 +1,35 @@
+package com.dkte;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class EssayDialog extends JDialog {
+
+	private JLabel titleLabel;
+	private JTextField titleField;
+	private JTextArea essayTextArea;
+	private JButton submitButton;
+	private JScrollPane essayJScrollPane;
+	private String title="";
+	private String essay="";
+	
+	public EssayDialog() {
+		this.setTitle("Essay");
+		this.setLayout(null);
+		this.setSize(400,300);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		titleLabel=new JLabel();
+		titleLabel.setBounds(50,20,80,30);
+		this.add(titleLabel);
+		
+		titleField=new JTextField();
+		titleField.setBounds(150,20,150,30);
+		
+	}
+}

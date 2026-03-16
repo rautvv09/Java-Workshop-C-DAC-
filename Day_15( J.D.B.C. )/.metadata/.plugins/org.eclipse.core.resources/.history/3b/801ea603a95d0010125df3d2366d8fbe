@@ -1,0 +1,66 @@
+package com.dkte;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Window extends JFrame{
+		
+	private JLabel num1Label;
+	private JTextField num1TextField;
+	private JLabel num2Label;
+	private JTextField num2TextField;
+	private JButton addButton,subButton,mulButton;
+	
+	
+	
+	 public Window() {
+		 this.setTitle("Assignment 1 :");
+		 this.setSize(600,500);
+		 this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		 
+		 this.setLayout(null);
+ 
+		 num1Label=new JLabel("Num 1:");
+		 num1Label.setBounds(100,50,100,30);
+		 this.add(num1Label);
+		 
+		 num1TextField=new JTextField();
+		 num1TextField.setBounds(200, 50, 200, 30);
+		 this.add(num1TextField);
+		 
+		 num2Label=new JLabel("Num 2:");
+		 num2Label.setBounds(100, 100, 100, 30);
+		 this.add(num2Label);
+		 
+		 num2TextField=new JTextField();
+		 num2TextField.setBounds(200, 100, 200, 30);
+		 this.add(num2TextField);
+		 
+		 
+		 addButton=new JButton("ADDITION");
+		 addButton.setBounds(100, 200, 100, 30);
+		 this.add(addButton);
+		 
+		 subButton=new JButton("SUBTRACT");
+		 subButton.setBounds(250, 200, 100, 30);
+		 this.add(subButton);
+		 
+		 mulButton=new JButton("MULTIPLY");
+		 mulButton.setBounds(400, 200, 120, 30);
+		 this.add(mulButton);
+		 
+		 
+		 ActionListener listener=(e) ->{
+			 
+		 };
+		 
+	 }
+	 
+	 
+	 
+	
+}
