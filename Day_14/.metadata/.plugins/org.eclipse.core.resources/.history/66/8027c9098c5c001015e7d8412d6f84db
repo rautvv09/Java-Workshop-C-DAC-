@@ -1,0 +1,10 @@
+package com.dkte;
+
+public class Student {
+
+	String name;
+	int rollno;
+	double marks;
+	
+	
+}

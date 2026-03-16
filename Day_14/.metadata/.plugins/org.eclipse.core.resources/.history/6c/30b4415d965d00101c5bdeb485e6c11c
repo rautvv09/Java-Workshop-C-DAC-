@@ -1,0 +1,14 @@
+package com.dkte.p4;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		
+		
+		class IntegerComparator implements Comparator<integer>{
+			
+		}
+
+	}
+
+}

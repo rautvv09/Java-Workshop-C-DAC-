@@ -1,0 +1,36 @@
+package com.dkte;
+
+public class Student implements Comparable<Student> {
+    private int rollno;
+    private String name;
+    private double marks;
+
+    public Student(int rollno, String name, double marks) {
+        this.rollno = rollno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    public int getRollno() {
+        return rollno;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getMarks() {
+        return marks;
+    }
+
+    // Default sorting by roll number
+    @Override
+    public int compareTo(Student other) {
+        return Integer.compare(this.rollno, other.rollno);
+    }
+
+    @Override
+    public String toString() {
+        return "Student [Roll No=" + rollno + ", Name=" + name + ", Marks=" + marks + "]";
+    }
+}

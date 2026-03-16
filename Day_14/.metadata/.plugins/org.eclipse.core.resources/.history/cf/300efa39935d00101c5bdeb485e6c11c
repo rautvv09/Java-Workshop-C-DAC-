@@ -1,0 +1,40 @@
+package com.dkte.p2;
+
+class Outer {
+	int field3;
+	static int field4;
+
+	// static Inner class
+	static class Inner {
+		int field1;
+		static int field2;
+
+		void innerMethod1() {
+			Outer o1 = new Outer();
+			System.out.println(o1.field3);
+			System.out.println(field1);
+			System.out.println(field2);
+//			System.out.println(field3); // NOT OK
+			System.out.println(field4);
+		}
+
+		static void innerMethod2() {
+			Outer o1 = new Outer();
+			System.out.println(o1.field3);
+			// System.out.println(field1);// NOT OK
+//			System.out.println(field3);// NOT OK
+			System.out.println(field2);
+			System.out.println(field4);
+		}
+	}
+}
+
+public class Program01 {
+
+	public static void main(String[] args) {
+    	Outer out = new Outer();
+		out.Inner in = new Outer.Inner();
+
+	}
+
+}

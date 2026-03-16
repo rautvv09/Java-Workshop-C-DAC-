@@ -1,0 +1,29 @@
+package com.dkte.p3;
+
+public class Program03 {
+
+	public void method1() {
+		int localField=10;
+		
+		class local{
+			int field1;
+			
+			static int feild1;// NOT OK
+			static void localmethod() {}  //NOT OK
+
+		}
+		
+		void localMethod2() {
+			System.out.println(field1);
+			System.out.println(field3);
+			System.out.println(feild4);
+			System.out.println(localField);
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

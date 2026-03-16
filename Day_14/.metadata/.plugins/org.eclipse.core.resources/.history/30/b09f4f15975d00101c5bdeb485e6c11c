@@ -1,0 +1,33 @@
+package com.dkte.p4;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		
+		
+		class IntegerComparator implements Comparator<Integer>{
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				// TODO Auto-generated method stub
+				return o2-o1;
+			}
+			
+		}
+		
+		IntegerComparator comparator =new IntegerComparator();
+		
+		Integer[] arr= {12,33,332,90,3,32,21,2};
+		
+		System.out.println("Before Sorting :"+Arrays.toString(arr));
+		
+		Arrays.sort(arr);
+		
+		System.out.println("After Sorting (descending) :"+Arrays.toString(arr));
+
+	}
+
+}

@@ -1,0 +1,91 @@
+package com.dkte;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Tester {
+	
+	public static int menu(Scanner sc) {
+		
+		System.out.println(" 1. add the student in the collection - accept the details from user and add in the collection\n");
+		System.out.println(" 2. Display all the students using iterator\n");
+		System.out.println(" 3. search the student on rollno and if found display his details.\n");
+		System.out.println(" 4. sort the students on rollno\n");
+		System.out.println(" 5. sort the students on name\n");
+		System.out.println(" 6. sort the students on marks\n");
+		
+		System.out.println(" Enter Your Choice: ");
+		int ch=sc.nextInt();
+		return ch;
+	
+		
+	}
+
+	public static void main(String[] args) {
+
+//		Q1. Create a menu driven code that have below menus
+//		1. add the student in the collection - accept the details from user and add in the collection
+//		2. Display all the students using iterator.
+//		3. search the student on rollno and if found display his details.
+//		4. sort the students on rollno
+//		5. sort the students on name
+//		6. sort the students on marks
+//		(Hint - use List Interface and Object of ArrayList)
+
+		
+		Scanner sc=new Scanner(System.in);
+		int choice;
+		
+		List<Student> l1=new ArrayList<Student>();
+		
+		
+		while((choice=menu(sc))!=0) {
+			
+			switch(choice) {
+			
+			case 1: System.out.println("Add Student :");
+					l1.accpetStu(sc);
+					break;
+					
+			case 2: System.out.println();
+					break;
+			
+			case 3: System.out.println();
+					break;
+			
+			
+			case 4: System.out.println();
+					break;
+			
+			
+			
+			case 5: System.out.println();
+					break;
+			
+			
+			
+			case 6: System.out.println();
+					break;
+				
+			
+			case 7: System.out.println();
+					break;
+			
+			
+			
+			case 8: System.out.println();
+					break;
+			
+			
+			
+			
+			}
+			
+			
+		}
+		
+		
+	}
+
+}

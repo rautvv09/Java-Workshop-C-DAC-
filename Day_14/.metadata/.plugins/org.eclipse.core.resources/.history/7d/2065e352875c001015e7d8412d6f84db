@@ -1,0 +1,19 @@
+package com.dkte.p2;
+
+
+class Outer{
+	int feild3;
+	private int feild4;
+	
+	class Inner{
+		
+	}
+}
+public class Program02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

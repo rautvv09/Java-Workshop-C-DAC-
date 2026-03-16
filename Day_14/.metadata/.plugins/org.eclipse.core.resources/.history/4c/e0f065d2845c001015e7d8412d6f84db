@@ -1,0 +1,33 @@
+package com.dkte.p1;
+
+
+class Outer{
+	int field3;
+	private int field4;
+	
+	class Inner{
+		int  field1;
+		 
+		//static int  field2;//NOT OKKK..........
+		
+		void innerMetod1(){
+			System.out.println(feild1);
+			System.out.println(feild3);
+			System.out.println(feild4);
+			
+		}
+		
+		//static void innerMethod2() {}	//Not OK...........
+	}
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Outer out=new Outer();
+		Outer.Inner in=out.new Inner();
+	}
+
+}

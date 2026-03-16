@@ -1,0 +1,96 @@
+package com.dkte;
+
+import java.util.*;
+
+public class Tester {
+
+    public static int menu(Scanner sc) {
+        System.out.println("\n========= Student Menu =========");
+        System.out.println("1. Add the student in the collection");
+        System.out.println("2. Display all the students using iterator");
+        System.out.println("3. Search the student by roll number");
+        System.out.println("4. Sort the students by roll number");
+        System.out.println("5. Sort the students by name");
+        System.out.println("6. Sort the students by marks");
+        System.out.println("0. Exit");
+        System.out.print("Enter your choice: ");
+        return sc.nextInt();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        List<Student> l1 = new ArrayList<>();
+
+        while ((choice = menu(sc)) != 0) {
+            switch (choice) {
+                case 1:
+                   Student s=new Student();
+                    s=acceptstu(sc);
+                    l1.add(s);
+                    System.out.println("Student added successfully!");
+                    break;
+
+                case 2:
+                    System.out.println("Displaying all students:");
+                    Iterator<Student> itr = l1.iterator();
+                    while (itr.hasNext()) {
+                        System.out.println(itr.next());
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter Roll Number to search: ");
+                    int rn = sc.nextInt();
+                    boolean found = false;
+
+                    for (Student s : l1) {
+                        if (s.getRollno() == rn) {
+                            System.out.println(s);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Student not found with roll number: " + rn);
+                    }
+                    break;
+
+                case 4:
+                    Collections.sort(l1, Comparator.comparingInt(Student::getRollno));
+                    System.out.println("Sorted by Roll Number:");
+                    for (Student s : l1) {
+                        System.out.println(s);
+                    }
+                    break;
+
+                case 5:
+                    Collections.sort(l1, Comparator.comparing(Student::getName));
+                    System.out.println("Sorted by Name:");
+                    for (Student s : l1) {
+                        System.out.println(s);
+                    }
+                    break;
+
+                case 6:
+                    Collections.sort(l1, Comparator.comparingDouble(Student::getMarks));
+                    System.out.println("Sorted by Marks:");
+                    for (Student s : l1) {
+                        System.out.println(s);
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+
+        System.out.println("Program exited.");
+        sc.close();
+    }
+
+	private static Student acceptstu(Scanner sc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

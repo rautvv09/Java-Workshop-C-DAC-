@@ -1,0 +1,100 @@
+package com.dkte;
+
+import java.util.*;
+import java.util.Comparator;
+
+
+public class Tester {
+
+	
+	public class NameComparator implements Comparator<Student> {
+	    @Override
+	    public int compare(Student s1, Student s2) {
+	        return s1.getName().compareToIgnoreCase(s2.getName());
+	    }
+	}
+
+    public static int menu(Scanner sc) {
+        System.out.println("\n===============================================");
+        System.out.println("1. Add the student in the collection");
+        System.out.println("2. Display all the students using iterator");
+        System.out.println("3. Search the student by roll number");
+        System.out.println("4. Sort the students by roll number (Comparable)");
+        System.out.println("5. Sort the students by name (Comparator)");
+        System.out.println("6. Sort the students by marks (Comparator)");
+        System.out.println("0. Exit");
+        System.out.println("\n===============================================");
+        System.out.print("Enter your choice: ");
+        return sc.nextInt();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Student> l1 = new ArrayList<>();
+        int choice;
+
+        while ((choice = menu(sc)) != 0) {
+            switch (choice) {
+                case 1:
+                    Student s = new Student();
+                    s.acceptstu(sc);
+                    l1.add(s);
+                    break;
+
+                case 2:
+                    System.out.println("Displaying all students:");
+                    Iterator<Student> itr = l1.iterator();
+                    while (itr.hasNext()) {
+                        System.out.println(itr.next());
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter Roll Number to search: ");
+                    int rn = sc.nextInt();
+                    boolean found = false;
+                    for (Student s1 : l1) {
+                        if (s1.getRollno() == rn) {
+                            System.out.println(s1);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Student not found with roll number: " + rn);
+                    }
+                    break;
+
+                case 4:
+                    Collections.sort(l1); // Uses Comparable (rollno)
+                    System.out.println("Sorted by Roll Number:");
+                    for (Student s1 : l1) {
+                        System.out.println(s1);
+                    }
+                    break;
+
+                case 5:
+                    Collections.sort(l1, new NameComparator()); // Uses Comparator
+                    System.out.println("Sorted by Name:");
+                    for (Student s1 : l1) {
+                        System.out.println(s1);
+                    }
+                    break;
+
+                case 6:
+                    Collections.sort(l1, new MarksComparator()); // Uses Comparator
+                    System.out.println("Sorted by Marks:");
+                    for (Student s1 : l1) {
+                        System.out.println(s1);
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+
+        System.out.println("Program exited.");
+        sc.close();
+    }
+}

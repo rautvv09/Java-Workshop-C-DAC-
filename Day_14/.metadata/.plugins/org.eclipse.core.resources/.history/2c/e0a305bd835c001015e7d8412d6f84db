@@ -1,0 +1,15 @@
+package com.dkte.p1;
+class Outer{
+	int feild3;
+	private int field4;
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

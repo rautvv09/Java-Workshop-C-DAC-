@@ -1,0 +1,44 @@
+package com.dkte.p2;
+
+
+class Outer{
+	int feild3;
+	private int feild4;
+	
+	class Inner{
+
+		int feild1;
+		static int feild2;
+		
+		void innerMethod1() {
+			Outer o1=new Outer();
+			System.out.println(o1.feild3);
+			System.out.println(feild1);
+			System.out.println(feild2);
+			System.out.println(feild3);
+			System.out.println(feild4);
+		
+		}
+		
+		void innerMethod2() {
+			Outer o1=new Outer();
+			System.out.println(o1.feild3);
+			//System.out.println(feild1);
+			//System.out.println(feild3);
+			System.out.println(feild2);
+			System.out.println(feild4);
+		
+		}
+
+
+	}
+}
+public class Program02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Outer out=new Outer();
+		Outer.Inner in=new Outer.Inner();
+	}
+
+}
