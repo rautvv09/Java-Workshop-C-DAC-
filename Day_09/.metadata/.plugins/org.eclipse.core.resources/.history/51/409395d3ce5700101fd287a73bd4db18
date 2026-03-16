@@ -1,0 +1,15 @@
+package com.dkte;
+
+public class Program02 {
+
+	public static void main(String[] args) {
+		
+		StringBuilder sb1=new StringBuilder("Sunbeam");
+		sb1.append("infotech");
+		sb1.trimToSize();
+		
+		System.out.println(" Sb1 :"+sb1);
+
+	}
+
+}

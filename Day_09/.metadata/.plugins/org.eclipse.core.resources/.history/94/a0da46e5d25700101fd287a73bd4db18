@@ -1,0 +1,29 @@
+package com.dkte.p1;
+
+class Box{
+	
+	private Object obj;
+
+	public Object getObj() {
+		return obj;
+	}
+
+	public void setObj(Object obj) {
+		this.obj = obj;
+	}
+	
+	
+	
+}
+
+public class Program01 {
+
+	public static void main(String args[]) {
+		Box b1=new Box();
+		b1.setObj(new Integer(10));
+		b1.getObj();
+		
+		
+	}
+	
+}

@@ -1,0 +1,12 @@
+package com.dkte;
+
+public class Program03 {
+
+	String s1="sunbeam";
+	String s2=new String("sunbeam");
+	
+	StringBuilder sb1=new StringBuilder("sunbeam");
+	StringBuilder sb2=new StringBuilder("sunbeam");
+	
+	
+}

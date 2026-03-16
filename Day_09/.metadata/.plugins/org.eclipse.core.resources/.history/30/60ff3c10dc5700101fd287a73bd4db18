@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Program03 {
+
+	public static boolean isPalindrome(String str) {
+		
+     int l=0,r=str.length()-1;
+		
+		while(l<=r) {
+			if(str1.charAt(l)!=str1.charAt(r)) {
+				return ;
+			}
+			++l;
+			++r;
+		}
+	}
+	public static void main(String[] args) {
+		
+        Scanner sc =new Scanner(System.in);
+		
+		System.out.println("Enter String :");
+		String str1=sc.nextLine();
+
+		isPalindrome(str1);
+	
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.dkte;
+
+import java.util.StringTokenizer;
+
+public class Program04 {
+
+	public static void main(String[] args) {
+		String s="sunbeaminfotech.com";
+		System.out.println("OG String -"+ s);
+		System.out.println("Tokens ->");
+		
+		StringTokenizer st=new StringTokenizer(s,".");
+		
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Program02 {
+
+	public static void main(String[] args) {
+	
+		//Q2. Write a java program to reverse a String
+
+		Scanner sc =new Scanner(System.in);
+		
+		System.out.println("Enter String :");
+		String str=sc.nextLine();
+		
+		StringBuilder sb1=new StringBuilder(str);
+		int left=0,right=sb1.length()-1;
+		
+		while(left<=right) {
+			String temp=sb1.charAt(left);
+			sb1[left]=sb1[right];
+			sb1[right]=temp;
+			
+		}
+		
+		
+		
+		//System.out.println("l :"+sb1.length());
+		
+		
+		
+		sc.close();
+	}
+
+}

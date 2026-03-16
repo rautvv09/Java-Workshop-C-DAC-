@@ -1,0 +1,20 @@
+package com.dkte;
+
+public class Program04 {
+
+	public static void main(String[] args) {
+		String s1="SUNBEAM";
+		String s2="sunbeam";
+		String s3=s2.toUpperCase();
+		
+
+		System.out.println(" S1 :"+s1);
+		System.out.println(" S2 :"+s2);
+		System.out.println(" S3 :"+s3);
+		System.out.println(" (S1==S3) :"+(s1==s3));
+		System.out.println("S1.equals(S3): "+s1.equals(s3));
+		
+
+	}
+
+}

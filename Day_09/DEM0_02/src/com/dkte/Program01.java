@@ -1,0 +1,17 @@
+package com.dkte;
+
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+		StringBuilder sb1=new StringBuilder("Sunbeam");
+		StringBuilder sb2=new StringBuilder("Sunbeam");
+		
+		System.out.println("SB1 :"+sb1);
+		System.out.println("SB2 :"+sb2);
+		System.out.println("(SB1 == SB2):"+(sb1==sb2));
+		System.out.println("SB1.equals(SB2) :"+sb1.equals(sb2));
+		
+	}
+
+}

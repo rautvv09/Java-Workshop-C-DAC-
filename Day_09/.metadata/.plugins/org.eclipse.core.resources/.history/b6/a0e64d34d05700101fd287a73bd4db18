@@ -1,0 +1,28 @@
+package com.dkte;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+	
+	String s1="sunbeam";
+	String s2=new String("sunbeam");
+	
+	StringBuilder sb1=new StringBuilder("sunbeam");
+	StringBuilder sb2=new StringBuilder("sunbeam");
+	
+	System.out.println(" S1 :"+s1);
+	System.out.println(" S2 :"+s2);
+	System.out.println(" SB1 :"+sb1);
+	System.out.println(" SB2 :"+sb2);
+	System.out.println();
+	
+	System.out.println(" (S1==S2) :"+s1==s2);
+	System.out.println(" S1.equals(S2) :"+s1.equals(s2));
+	System.out.println();
+	
+	System.out.println(" S1==SB2 : "+(sb1==sb2));
+	System.out.println(" SB1.equals(SB2): "+(sb1.equals(sb2)));
+	
+	
+   }
+}

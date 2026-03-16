@@ -1,0 +1,13 @@
+package com.dkte;
+
+public class Program04 {
+
+	public static void main(String[] args) {
+		String s1="SUNBEAM";
+		String s2="sunbeam";
+		String s3=s2.toUpperCase();
+		
+
+	}
+
+}
