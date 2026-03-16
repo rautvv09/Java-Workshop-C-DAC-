@@ -1,0 +1,85 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+class Students{
+	String name;
+	int rollno;
+	double marks;
+	
+	public Students() {
+		
+	}
+	
+	public Students(String name,int rollno,double marks) {
+		this.name=name;
+		this.rollno=rollno;
+		this.marks=marks;
+	}
+	
+	public void displayStudent() {
+		System.out.println("Student Name:"+name);
+		System.out.println("Student Roll No:"+rollno);
+		System.out.println("Student Marks:"+marks);
+	}
+	
+	public void acceptStudent() {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter Student Name:");
+		name=sc.nextLine();
+		
+		System.out.println("Enter Student Roll No:");
+	     rollno=sc.nextInt();
+		
+		System.out.println("Enter Student Marks:");
+		marks=sc.nextDouble();
+	
+	
+	}
+}
+public class program03 {
+
+	public static void main(String[] args) {
+		
+		Students[][] StudentList=new Students[2][];
+		
+		//CS Student
+		StudentList[0]=new Students[6];
+		
+		//AI & DS
+		StudentList[1]=new Students[3];
+		
+		for(int i=0;i<StudentList.length;i++) {
+			for(int j=0;j<StudentList[i].length;j++) {
+				if(i==0) {
+					System.out.println("CS Students:");
+				}
+				if(i==1) {
+					System.out.println("AI & DS Students:");
+				}
+				StudentList[i][j]= new Students();
+				StudentList[i][j].acceptStudent();
+			}
+		}
+		
+		System.out.println("Displaying Student Information:\n");
+		for(int i=0;i<StudentList.length;i++) {
+			for(int j=0;j<StudentList[i].length;j++) {
+				if(i==0) {
+					System.out.println("CS Students:\n");
+				}
+				if(i==1) {
+					System.out.println("AI & DS Students:\n");
+				}
+				if(StudentList[i][j]!=null) {
+					StudentList[i][j].displayStudent();
+					System.out.println("-------------------------------------\n");
+				}
+				
+			}
+		}
+
+	}
+
+}

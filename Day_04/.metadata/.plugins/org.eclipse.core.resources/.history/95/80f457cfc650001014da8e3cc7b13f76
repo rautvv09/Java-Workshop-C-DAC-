@@ -1,0 +1,38 @@
+package com.dkte;
+
+class Student{
+	String name;
+	int rollno;
+	double marks;
+	
+	public Student() {
+		
+	}
+	
+	public Student(String name,int rollno,double marks) {
+		this.name=name;
+		this.rollno=rollno;
+		this.marks=marks;
+	}
+	
+	public void displayStudent() {
+		System.out.println("Student Name:"+name);
+		System.out.println("Student Roll No:"+rollno);
+		System.out.println("Student Marks:"+marks);
+	}
+}
+public class program03 {
+
+	public static void main(String[] args) {
+		
+		Student[][] StudentList=new Student[2][];
+		
+		StudentList[0]=new Student[2];
+		
+		StudentList[1]=new Student[6];
+		
+		
+
+	}
+
+}

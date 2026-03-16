@@ -1,0 +1,13 @@
+package com.dkte;
+
+public class program03 {
+
+	public static void main(String[] args) {
+		
+		Student[][] arr=new Student[2][];
+		
+		arr[0]=new 
+
+	}
+
+}
