@@ -1,0 +1,24 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Program01 {
+
+	public static void main(String args[]) {
+		List<String> l=new ArrayList<>();
+		
+		l.add("Shiv ");
+		l.add("Rohan");
+		l.add("jay");
+		l.add("Singh");
+		l.add("Ritesh");
+		l.add(2, "Raj");
+		l.set(4, "Viru");
+		
+		for(String e: l) {
+			System.out.println("Elemets :"+e);
+		}
+		
+	}
+}

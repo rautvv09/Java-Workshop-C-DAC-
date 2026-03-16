@@ -1,0 +1,42 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Program5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List<Product> products = new ArrayList<>();
+		products.add(new Product(5, "Pen", 15));
+		products.add(new Product(2, "Pencil", 5));
+		products.add(new Product(4, "Book", 50));
+		products.add(new Product(1, "Eraser", 8));
+		products.add(new Product(3, "Ruler", 12));
+
+		System.out.println("Before Sorting -> ");
+		for (Product product : products)
+			System.out.println(product);
+
+		Collections.sort(products, new  ProductIdComprator);
+
+		System.out.println("After Sorting -> ");
+		for (Product product : products)
+			System.out.println(product);
+		
+		
+		class ProductIdComprator implements Comparator <Product> {
+
+			@Override
+			public int compare(Product o1, Product o2) {
+				return o1.getpId() - o2.getpId();
+			}
+			
+		}
+	}
+
+
+}

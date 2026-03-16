@@ -1,0 +1,14 @@
+package com.dkte;
+
+import java.util.ArrayList;
+
+public class Program01 {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> l1=new ArrayList<>();
+		
+		
+
+	}
+
+}

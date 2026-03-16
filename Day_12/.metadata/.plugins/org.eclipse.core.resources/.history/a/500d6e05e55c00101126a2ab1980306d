@@ -1,0 +1,248 @@
+//package com.dkte;
+//
+//
+//import java.util.ArrayList;
+//import java.util.Collections;
+////import java.util.Comparator;
+//import java.util.List;
+//import java.util.Objects;
+//
+//class Product implements Comparable<Product>{
+//	int pid;
+//	String name;
+//	double price;
+//
+//	public Product() {
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (!(obj instanceof Product))
+//			return false;
+//		Product other = (Product) obj;
+//		return Objects.equals(name, other.name) && pid == other.pid
+//				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+//	}
+//
+//	public Product(int pid) {
+//		super();
+//		this.pid = pid;
+//	}
+//
+//	public Product(int pid, String name, double price) {
+//		this.pid = pid;
+//		this.name = name;
+//		this.price = price;
+//	}
+//
+//	
+//
+//	@Override
+//	public String toString() {
+//		return "Product [pid=" + pid + ", name=" + name + ", price=" + price + "]";
+//	}
+//
+//	@Override
+//	public int compareTo(Product o){//for 2
+//		// TODO Auto-generated method stub
+//		return this.pid-o.pid;
+//	}
+//
+//	// natural ordering of the products (Ascending order of the pid)
+//	
+//
+//}
+//
+//public class Program04 {
+//
+//	public static void main3(String[] args) {
+//		List<Product> products = new ArrayList<>();//1
+//		products.add(new Product(5, "Pen", 15));
+//		products.add(new Product(2, "Pencil", 5));
+//		products.add(new Product(4, "Book", 50));
+//		products.add(new Product(1, "Eraser", 8));
+//		products.add(new Product(3, "Ruler", 12));
+//
+//		 for(Product p:products) {
+//			 System.out.println("Products :"+p);
+//		 }
+//	}
+//
+//	public static void main(String[] args) {
+//		List<Product> products = new ArrayList<>();//2
+//		products.add(new Product(5, "Pen", 15));
+//		products.add(new Product(2, "Pencil", 5));
+//		products.add(new Product(4, "Book", 50));
+//		products.add(new Product(1, "Eraser", 8));
+//		products.add(new Product(3, "Ruler", 12));
+//
+//		System.out.println("Before Sorting -> ");
+//		for (Product product : products)
+//			System.out.println(product);
+//
+//		Collections.sort(products);
+//
+//		System.out.println("After Sorting -> ");
+//		for (Product product : products)
+//			System.out.println(product);
+//	}
+//
+//	public static void main2(String[] args) {
+//		List<Product> products = new ArrayList<>();//3
+//		products.add(new Product(5, "Pen", 15));
+//		products.add(new Product(2, "Pencil", 5));
+//		products.add(new Product(4, "Book", 50));
+//		products.add(new Product(1, "Eraser", 8));
+//		products.add(new Product(3, "Ruler", 12));
+//
+//		products.remove(new Product(1));
+//		products.remove(2);
+//
+//		for (Product product : products)
+//			System.out.println(product);
+//	}
+//
+//	public static void main1(String[] args) {
+//		List<Product> products = new ArrayList<>();//4
+//		products.add(new Product(5, "Pen", 15));
+//		products.add(new Product(2, "Pencil", 5));
+//		products.add(new Product(4, "Book", 50));
+//		products.add(new Product(1, "Eraser", 8));
+//		products.add(new Product(3, "Ruler", 12));
+//
+//		for (Product product : products)
+//			System.out.println(product);
+//
+//		System.out.println("product at index 2 = " + products.get(2));
+//		System.out.println("index of product with id 4 = " + products.indexOf(new Product(4)));
+//
+//	}
+//
+//}
+
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+
+class Product{
+	int pid;
+	String name;
+	double price;
+
+	public Product() {
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Product))
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(name, other.name) && pid == other.pid
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+	}
+
+	public Product(int pid) {
+		super();
+		this.pid = pid;
+	}
+
+	public Product(int pid, String name, double price) {
+		this.pid = pid;
+		this.name = name;
+		this.price = price;
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Product [pid=" + pid + ", name=" + name + ", price=" + price + "]";
+	}
+
+}
+
+ class NameComparator implements Comparator<Product>{
+
+	@Override
+	public int compare(Product o1, Product o2) {
+		// TODO Auto-generated method stub
+		return o1.name.compareToIgnoreCase(o2.name);
+	}
+	
+}
+ 
+ 
+ class IdComparator implements Comparator<Product>{
+
+		@Override
+		public int compare(Product o1, Product o2) {
+			// TODO Auto-generated method stub
+			return Integer.compare(o1.pid, o2.pid);
+		}
+		
+	}
+ 
+ 
+ class PriceComparator implements Comparator<Product>{
+	 @Override
+	 public int compare(product o1,product o2) {
+		 return Double.compare(o1.price, o2.price);
+	 }
+
+ 
+ }
+
+public class Program04 {
+
+	public static void main(String[] args) {
+		
+	List<Product> products = new ArrayList<>();
+	products.add(new Product(5, "Pen", 15));
+	products.add(new Product(2, "Pencil", 5));
+	products.add(new Product(4, "Book", 50));
+	products.add(new Product(1, "Eraser", 8));
+	products.add(new Product(3, "Ruler", 12));
+
+	//Name Comparator
+	System.out.println("\nBefore Sorting : ");
+	for (Product product : products)
+		System.out.println(product);
+
+	Collections.sort(products,new NameComparator());
+
+	System.out.println("\nAfter Sorting Name Comparator : ");
+	for (Product product : products)
+		System.out.println(product);
+	
+	//ID Comparator
+	System.out.println("\nBefore Sorting : ");
+	for (Product product : products)
+		System.out.println(product);
+
+	Collections.sort(products,new IdComparator());
+
+	System.out.println("\nAfter Sorting ID Comparator : ");
+	for (Product product : products)
+		System.out.println(product);
+	
+	
+	//Price Comparator
+		System.out.println("\nBefore Sorting : ");
+		for (Product product : products)
+			System.out.println(product);
+
+		Collections.sort(products,new PriceComparator());
+
+		System.out.println("\nAfter Sorting Price Comparator : ");
+		for (Product product : products)
+			System.out.println(product);
+  }
+}

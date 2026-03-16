@@ -1,0 +1,12 @@
+package com.dkte;
+
+import java.util.Queue;
+import java.util.PriorityQueque;
+public class Program02 {
+
+	public static void main(String[] args) {
+		Queue<Integer> q1=new PriorityQueque<>();
+
+	}
+
+}

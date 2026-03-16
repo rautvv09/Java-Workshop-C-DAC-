@@ -1,0 +1,30 @@
+package com.dkte;
+
+import java.util.Queue;
+import java.util.ArrayDeque;
+
+public class Program01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Queue<Integer> q1=new ArrayDeque<>();
+		
+		q1.add(10);
+		q1.offer(20);
+		q1.add(30);
+		q1.offer(40);
+		q1.add(88);
+		
+		System.out.println("Element At Front : "+q1.peek());
+		System.out.println("Element At Front : "+q1.element());
+		
+		System.out.println("q1.poll :"+q1.poll());
+		System.out.println("q1.remove :"+q1.remove());
+		System.out.println("q1.remove :"+q1.remove());
+		System.out.println("q1.poll :"+q1.poll());
+		
+		System.out.println("Element At Front : "+q1.peek());
+	}
+
+}

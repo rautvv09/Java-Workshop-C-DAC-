@@ -1,0 +1,34 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		
+		List<String> l1=new ArrayList<>();
+		l1.add("Ajay");
+		l1.add("Sujay");
+		l1.add("Digvijay");
+		l1.add("Ritesh");
+		l1.add("Raj");
+
+	
+		System.out.println("Before Sorting List :\n");
+		for(String str:l1) {
+			System.out.println(str);
+		}
+		
+		Collections.sort(l1);
+		
+		System.out.println("\nAfter Sorting List :\n");
+		for(String str:l1) {
+			System.out.println(str);
+		}
+		
+		
+	}
+
+}

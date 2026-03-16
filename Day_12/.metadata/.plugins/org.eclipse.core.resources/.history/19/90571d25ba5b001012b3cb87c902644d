@@ -1,0 +1,17 @@
+package com.dkte;
+
+import java.util.List;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		
+		List<String> l1=new ArrayList<>();
+		l1.add("Ajay");
+		l1.add("Sujay");
+		l1.add("Digvijay");
+		l1.add("Ritesh");
+		l1.add("Raj");
+	}
+
+}

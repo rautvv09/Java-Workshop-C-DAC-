@@ -1,0 +1,27 @@
+package com.dkte;
+
+import java.util.Queue;
+import java.util.PriorityQueue;
+
+public class Program02 {
+
+	public static void main(String[] args) {
+		Queue<Integer> q2=new PriorityQueue<>();
+		
+		q2.add(10);
+		q2.offer(15);
+		q2.add(20);
+		q2.offer(25);
+		q2.add(30);
+		q2.offer(35);
+		q2.add(40);
+		q2.offer(45);
+
+		System.out.println("q2.peek :"+q2.peek());
+
+		System.out.println("q2.poll :"+q2.poll());
+	
+		System.out.println("q2.remove(35)"+q2.remove(35));
+	}
+
+}
