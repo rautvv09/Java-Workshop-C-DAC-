@@ -1,0 +1,36 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+interface Acceptable{
+	void accept(Scanner sc);
+}
+
+interface Displayable{
+	void display();
+}
+
+class Date implements Acceptable,Displayable{
+
+	int day;
+	int month;
+	int year;
+	
+	@Override
+	
+
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+	
+		
+				
+				inteerface displable{
+					void display();	
+				}
+		}
+
+	}
+
+}

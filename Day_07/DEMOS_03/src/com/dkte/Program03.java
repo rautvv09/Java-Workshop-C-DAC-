@@ -1,0 +1,35 @@
+package com.dkte;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Program03 {
+
+	
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		int n;
+		int d;
+		
+		try {
+			System.out.println("Enter Numerator:");
+			n=sc.nextInt();
+			
+			System.out.println("Enter Denominator:");
+			d=sc.nextInt();
+			
+			int result=n/d;
+			System.out.println("Result ->"+result);
+			
+		}catch(ArithmeticException e) {
+			System.out.println("Cannot Divide By 0............");
+		}catch(InputMismatchException e) {
+			System.out.println("Enter The Numbers......");
+		}finally {
+			sc.close();
+		}
+
+	}
+}

@@ -1,0 +1,22 @@
+package com.dkte;
+
+import java.util.Scanner;
+;
+
+public class Program01 {
+
+	public static void main(String[] args) {
+	
+		interface Acceptable{
+				void accept(Scanner sc) {
+					
+				}
+				
+				inteerface displable{
+					void display();	
+				}
+		}
+
+	}
+
+}

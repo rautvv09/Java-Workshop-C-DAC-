@@ -1,0 +1,13 @@
+package com.sunbeam;
+
+public class Program02 {
+	public static void test() {
+		double num1;
+		test();
+	}
+
+	public static void main(String[] args) {
+		test();
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.dkte;
+
+
+interface I1{
+	
+}
+
+interface I2{
+	
+}
+
+interface I3 extends I1,I2{
+	
+}
+public class Program02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

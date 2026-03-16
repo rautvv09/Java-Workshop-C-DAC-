@@ -1,0 +1,35 @@
+package com.dkte;
+
+
+interface I1{
+	
+}
+
+interface I2{
+	
+}
+
+interface I3 extends I1,I2{
+	
+}
+
+class C1{
+	
+}
+
+class C2{
+	
+}
+
+
+class C3 extends C1 implements I1,I2{
+	
+}
+public class Program02 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

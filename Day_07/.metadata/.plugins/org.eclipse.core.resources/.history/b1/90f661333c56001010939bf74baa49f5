@@ -1,0 +1,62 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+interface Acceptable{
+	void accept(Scanner sc);
+}
+
+interface Displayable{
+	void display();
+}
+
+class Date implements Acceptable,Displayable{
+
+	int day;
+	int month;
+	int year;
+	
+	@Override
+	public void accept(Scanner sc) {
+		System.out.println("Date : Accept");
+	}
+	
+	@Override
+	public void display() {
+	
+	}
+
+}
+
+class Time implements Acceptable{
+	
+	int hr;
+	int min;
+	
+	@Override
+	public void accept(Scanner sc) {
+		System.out.println("Date: Accept");
+	}
+}
+
+
+class Employee implements Acceptable,Displayable{
+	
+	@Override
+	public void accept(Scanner sc) {
+		System.out.println("accept: Employee");
+	}
+	
+	@Override
+	public void display() {
+		
+	}
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.dkte;
+
+public class Program02 {
+
+	public void Test() {
+		double num1;
+		Test();
+	}
+	
+	public static void main(String[] args) {
+			Test();
+	}
+}
