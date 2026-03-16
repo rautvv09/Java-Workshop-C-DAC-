@@ -1,0 +1,7 @@
+package com.dkte;
+
+public class LabStaff {
+
+	int salary;
+	
+}

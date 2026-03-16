@@ -1,0 +1,52 @@
+package com.dkte;
+
+public class TeachingStaff extends Staff {
+
+	int noOfHours;
+	int chargesPerHour;
+	
+	public TeachingStaff(int id, String name,int noOfHours, int chargesPerHour) {
+		super(id, name);
+		this.noOfHours = noOfHours;
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	public TeachingStaff(int id, String name) {
+		super(id, name);
+	}
+	
+	public TeachingStaff() {
+		
+	}
+
+	public int getNoOfHours() {
+		return noOfHours;
+	}
+
+	public void setNoOfHours(int noOfHours)throws Exception {
+		if(noOfHours<0) {
+			throw new Exception("No. Of Hours Must Be Positive Numbers..........");
+		}
+		this.noOfHours = noOfHours;
+	}
+
+	public int getChargesPerHour() {
+		return chargesPerHour;
+	}
+
+	public void setChargesPerHour(int chargesPerHour)throws Exception {
+		if(chargesPerHour<0)
+			throw new Exception("Charges Per Hour Must Be Positive Number");
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	@Override
+	public String toString() {
+		return "TeachingStaff [noOfHours=" + noOfHours + ", chargesPerHour=" + chargesPerHour + ", id=" + id + ", name="
+				+ name + "]";
+	}
+	
+	
+	
+	
+}

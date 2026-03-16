@@ -1,0 +1,17 @@
+package com.dkte;
+
+public class LabStaff extends Staff {
+
+	int salary;
+
+	public LabStaff(int id, String name, int salary) {
+		super(id, name);
+		this.salary = salary;
+	}
+
+	public LabStaff(int id, String name) {
+		super(id, name);
+	}
+	
+	
+}

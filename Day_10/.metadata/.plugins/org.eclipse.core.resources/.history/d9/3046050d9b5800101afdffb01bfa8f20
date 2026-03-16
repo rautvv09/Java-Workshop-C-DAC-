@@ -1,0 +1,55 @@
+package com.dkte.p2;
+
+
+class Employee implements Comparable<Employee>{
+	
+	int empid;
+	Double salary;
+	String name;
+	
+	public int getEmpid() {
+		return empid;
+	}
+	
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	
+	public Double getSalary() {
+		return salary;
+	}
+	
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Employee(int empid, Double salary, String name) {
+		this.empid = empid;
+		this.salary = salary;
+		this.name = name;
+	}
+
+	public Employee() {
+		
+	}
+	
+	
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

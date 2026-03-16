@@ -1,0 +1,132 @@
+package com.dkte;
+
+import java.util.Scanner;
+import com.dkte.*;
+
+public class Tester {
+
+
+   private static TeachingStaff[] TStaff;
+   private static Staff[] staff;
+   private static LabStaff[] LStaff;
+
+   public static int menu(Scanner sc) {
+	   System.out.println("\n--------------------------------------------------------");
+	   System.out.println("1. Add Teaching staff");
+	   System.out.println("2. Add Lab staff");
+	   System.out.println( "3. Display all Teaching staff.");
+	   System.out.println( "4. Display All Lab staff");
+	   System.out.println( "5. Find specific teaching staff");
+	   System.out.println( "6. Find specific lab staff");  
+	   System.out.println("7.Display teaching staff who worked for highest hour");
+	   System.out.println("8. Display Labstaff Who have lowest salary");
+	   System.out.println("--------------------------------------------------------\n");
+	   
+	   System.out.println("Enter Choice:");
+	   int choice=sc.nextInt();
+	   
+	   return choice;
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int i=0;
+		
+		int choice=0;
+		
+		while((choice=menu(sc))!=0) {
+			
+			switch(choice) {
+			
+			case 1:
+					if(i<10) {
+						
+					System.out.println("Add Teaching staff:");
+					System.out.println("Enter Id:");
+					int tid=sc.nextInt();
+					
+					System.out.println(" Enter name:");
+					String nm=sc.next();
+					
+					System.out.println("Enter No. Of Hours: ");
+					int noh=sc.nextInt();
+					
+					System.out.println("Enter Charges Per Hour: ");
+					int cph=sc.nextInt();
+					
+					TStaff[i++]=new TeachingStaff(tid,nm,noh,cph);
+			       }
+					else {
+								System.out.println("Staff Is Full..........");
+					      }
+					break;
+					
+			case 2:
+				System.out.println("Add Lab staff:");
+				if(i<10) {
+					
+					System.out.println("Add Teaching staff:");
+					System.out.println("Enter Id:");
+					int tid=sc.nextInt();
+					
+					System.out.println(" Enter name:");
+					String nm=sc.next();
+					
+					System.out.println("Enter Salary: ");
+					int sal=sc.nextInt();
+					
+					LStaff[i]=new LabStaff(tid,nm,sal);
+			       }
+					else {
+								System.out.println("Staff Is Full..........");
+					      }
+				break;
+				
+				
+			case 3:
+				System.out.println("3. Display all Teaching staff.");
+				break;
+				
+				
+				
+			case 4:
+				System.out.println("4. Display All Lab staff");
+				break;
+				
+				
+				
+			case 5:
+				System.out.println("5. Find specific teaching staff");
+				break;
+				
+				
+				
+			case 6:
+				System.out.println("6. Find specific lab staff");
+				break;
+				
+				
+				
+			case 7:
+				System.out.println("7.Display teaching staff who worked for highest hour");
+				break;
+				
+				
+				
+			case 8:
+				System.out.println("Add Teaching staff:");
+				break;
+				
+			default:
+				System.out.println("Add Teaching staff:");
+				break;
+				
+			
+			}
+		}
+		
+	}
+
+}

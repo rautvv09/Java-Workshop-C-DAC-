@@ -1,0 +1,55 @@
+package com.dkte.p4;
+
+import java.util.Date;
+
+class Box<T>{
+	
+	private T obj;
+
+	public Box(T obj) {
+		this.obj = obj;
+	}
+	
+	public Box() {
+		
+	}
+
+	public T getObj() {
+		return obj;
+	}
+
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+	
+}
+public class Program01 {
+
+	public static void displayBox(Box<? extends Number> b) {
+		
+		System.out.println("Value -"+b.getObj());
+	}
+	
+	public static void main(String[] args) {
+		
+		Box<Integer> b1=new Box<Integer>();
+		displayBox(b1);
+		
+
+		Box<Double> b2=new Box<Double>();
+		displayBox(b2);
+		
+
+		Box<Float> b3=new Box<Float>();
+		displayBox(b3);
+		
+		Box<Date> b4=new Box<Date>();
+		//displayBox(b4);// Not Ok Because The Display Function Get Only The Datatype which are subclasses of the Number
+		
+		Box<String> b5=new Box<String>();
+		//displayBox(b5);// Not Ok Because The Display Function Get Only The Datatype which are subclasses of the Number
+		
+		
+	}
+
+}

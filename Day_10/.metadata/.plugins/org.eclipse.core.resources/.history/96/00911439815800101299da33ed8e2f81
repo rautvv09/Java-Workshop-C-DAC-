@@ -1,0 +1,46 @@
+package com.dkte.p3;
+
+import java.util.Date;
+
+class Box<T>{
+	
+	private T obj;
+
+	public Box(T obj) {
+		this.obj = obj;
+	}
+	
+	public Box() {
+		
+	}
+
+	public T getObj() {
+		return obj;
+	}
+
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+	
+}
+public class Program01 {
+	 
+	public static void displayBox(Box<?> b) {
+		System.out.println("value -"+b.getObj());
+	}
+
+	public static void main(String[] args) {
+		
+		Box<Integer> b1=new Box<Integer>(15);
+		b1.getObj();
+		
+		Box<String> b2=new Box<String>("Sunbeam");
+		b2.getObj();
+		
+		Box<Date> b3=new Box<Date>(new Date());
+		b3.getObj();
+		
+
+	}
+
+}

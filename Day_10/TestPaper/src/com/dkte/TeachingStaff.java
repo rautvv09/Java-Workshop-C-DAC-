@@ -1,0 +1,80 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+public class TeachingStaff extends Staff {
+
+	Scanner sc =new Scanner(System.in);
+	
+	
+	int noOfHours;
+	int chargesPerHour;
+	
+	public TeachingStaff(int id, String name,int noOfHours, int chargesPerHour) {
+		super(id, name);
+		this.noOfHours = noOfHours;
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	public TeachingStaff(int id, String name) {
+		super(id, name);
+	}
+	
+	public TeachingStaff() {
+		
+	}
+
+	public int getNoOfHours() {
+		return noOfHours;
+	}
+
+	public void setNoOfHours(int noOfHours)throws StaffException  {
+		if(noOfHours<0) {
+			throw new StaffException("");
+		}
+		this.noOfHours = noOfHours;
+	}
+
+	public int getChargesPerHour() {
+		return chargesPerHour;
+	}
+
+	public void setChargesPerHour(int chargesPerHour)throws StaffException  {
+		if(chargesPerHour<0)
+			throw new StaffException("");
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	@Override
+	public String toString() {
+		return "\n TeachingStaff [noOfHours=" + noOfHours + ", chargesPerHour=" + chargesPerHour + ", id=" + id + ", name="
+				+ name + "]";
+	}
+	
+	public TeachingStaff acceptTeaching(Scanner sc) throws StaffException{
+		System.out.println("Add Teaching Staff:");
+		System.out.print("Enter ID: ");
+		id = sc.nextInt();
+				
+		System.out.print("Enter Name: ");
+		name = sc.next();
+
+		System.out.print("Enter No. of Hours: ");
+		noOfHours = sc.nextInt();
+		if(noOfHours<0) {
+			throw new StaffException("Number oF Hours Must Be Non-Negative...");
+		}
+
+
+		System.out.print("Enter Charges Per Hour: ");
+		chargesPerHour= sc.nextInt();
+		if(chargesPerHour<0) {
+			throw new StaffException("");
+		}
+			
+		return new TeachingStaff(id, name,noOfHours,chargesPerHour);
+		 
+	}
+	
+	
+}

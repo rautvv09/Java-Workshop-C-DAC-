@@ -1,0 +1,20 @@
+package com.dkte;
+
+public class TeachingStaff extends Staff {
+
+	int noOfHours;
+	int chargesPerHour;
+	
+	public TeachingStaff(int id, String name,int noOfHours, int chargesPerHour) {
+		super(id, name);
+		this.noOfHours = noOfHours;
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	public TeachingStaff() {
+		super();
+	}
+	
+	
+	
+}

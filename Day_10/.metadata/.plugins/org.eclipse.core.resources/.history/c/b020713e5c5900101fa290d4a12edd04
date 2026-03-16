@@ -1,0 +1,9 @@
+package com.dkte;
+
+public class TeachingStaff {
+
+	int noOfHours;
+	int chargesPerHour;
+	
+	
+}

@@ -1,0 +1,43 @@
+package com.dkte.p5;
+
+
+class Box<T>{
+	
+	private T obj;
+
+	public T getObj() {
+		return obj;
+	}
+
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+
+	public Box(T obj) {
+		this.obj = obj;
+	}
+
+	public Box() {
+	
+	}
+	
+	
+}
+public class Program01 {
+
+	public static void displayBox(Box< ? super Integer> b) {
+			
+		System.out.println("Values :"+b.getObj());
+
+	}
+
+	public static void main(String[] args) {
+		
+		Box<Integer> b1=new Box<Integer>();
+		displayBox(b1);
+		
+		
+
+	}
+
+}

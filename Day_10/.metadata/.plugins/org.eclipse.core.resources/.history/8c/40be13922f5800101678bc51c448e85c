@@ -1,0 +1,60 @@
+package com.dkte.p2;
+
+class Box<T extends Number>{
+	private T obj;
+
+	public T getObj() {
+		return obj;
+	}
+
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+
+		Box<Integer> b1=new Box<Integer>();
+		b1.setObj(78);
+		Integer i1=b1.getObj();
+		System.out.println(" i1 :"+i1);
+		
+	//	Box<String> b2=new Box<String>();//NOT OK Because T extends only number and it's subclasses.
+	//	Box<Date> b3=new Box<Date>();//Not OK Because T extends only number and it's subclasses.
+		
+		
+		Box<Double> b4=new Box<Double>();
+		b4.setObj(33.3);
+		double d2=b4.getObj();
+		System.out.println(" d2 :"+d2);
+		
+		
+		Box<float> b5=new Box<float>();
+		b5.setObj(33.3);
+		float d3=b5.getObj();
+		System.out.println(" d3 :"+d3);
+		
+		
+		Box<Long> b6=new Box<Long>();
+		b6.setObj(33.3);
+		long d4=b6.getObj();
+		System.out.println(" d4 :"+d3);
+		
+		
+		Box<Float> b5=new Box<Float>();
+		b5.setObj(33.3);
+		float d3=b5.getObj();
+		System.out.println(" d3 :"+d3);
+		
+		
+		
+		
+		short 
+		
+		byte
+	}
+
+}

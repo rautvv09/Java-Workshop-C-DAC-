@@ -1,0 +1,11 @@
+package com.dkte.p1;
+
+class Box<T>{
+	private T obj;
+	
+	
+}
+public class Program01 {
+
+	
+}

@@ -1,0 +1,55 @@
+package com.dkte.p3;
+
+class Box<T>{
+	
+	private T obj;
+
+	public T getObj() {
+		return obj;
+	}
+
+	public void setObj(T obj) {
+		this.obj = obj;
+	}
+
+	public Box(T obj) {
+		this.obj = obj;
+	}
+
+	public Box() {
+		
+	}
+
+}
+
+class BoxObject{
+	Object ref;
+}
+
+class BoxInteger{
+	Integer ref;
+}
+
+class BoxDouble{
+	Double ref;
+}
+
+class BoxString{
+	String ref;
+}
+
+
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+		Box<Integer> b1=new Box<Integer>();
+		
+		Box<Integer> b2=new Box<>();
+
+		Box<Integer> b3=new Box();
+		
+		Box<Object> b4=new Box();
+	}
+
+}

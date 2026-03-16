@@ -1,0 +1,20 @@
+package com.dkte;
+
+public class TeachingStaff {
+
+	int noOfHours;
+	int chargesPerHour;
+	
+	public TeachingStaff(int noOfHours, int chargesPerHour) {
+		super();
+		this.noOfHours = noOfHours;
+		this.chargesPerHour = chargesPerHour;
+	}
+
+	public TeachingStaff() {
+		super();
+	}
+	
+	
+	
+}
