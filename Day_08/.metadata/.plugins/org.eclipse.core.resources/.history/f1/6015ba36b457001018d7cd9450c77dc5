@@ -1,0 +1,130 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+interface Acceptable{
+	void accept(Scanner sc);
+}
+
+interface Displayable{
+	void display();
+}
+
+class Date implements Acceptable,Displayable{
+
+	int day;
+	int month;
+	int year;
+	
+	@Override
+	public void accept(Scanner sc) {
+		
+		System.out.println("Date : Accept");
+		
+		System.out.println("Enter Day:");
+		day=sc.nextInt();
+		
+		System.out.println("Enter Month:");
+		month=sc.nextInt();
+		
+		System.out.println("Enter Year");
+		year=sc.nextInt();
+		
+		
+		
+	}
+	
+	@Override
+	public void display() {
+		System.out.println(" Day:"+day);
+		System.out.println(" Month:"+month);
+		System.out.println(" Year"+year);
+	}
+
+}
+
+class Time implements Acceptable,Displayable{
+	
+	int hr;
+	int min;
+	
+	@Override
+	public void accept(Scanner sc) {
+		System.out.println("Date: Accept");
+		
+		System.out.println("Enter Hours:");
+		hr=sc.nextInt();
+		
+		System.out.println("Enter Minutes:");
+		min=sc.nextInt();
+		
+	}
+	
+	@Override
+	public void display() {
+		System.out.println("Date: Display");
+		
+		System.out.println("Enter Hours:"+hr);
+		System.out.println("Enter Minutes:"+min);
+		
+		
+	}
+}
+
+
+class Employee implements Acceptable,Displayable{
+	
+	String name;
+	int id;
+	double salary;
+	
+	@Override
+	public void accept(Scanner sc) {
+		System.out.println("accept: Employee");
+		
+		System.out.println("Enter Name:");
+		name=sc.nextLine();
+		
+		System.out.println("Enter Id:");
+		id=sc.nextInt();
+		
+		System.out.println("Enter Salary:");
+		salary=sc.nextDouble();
+		
+	}
+	
+	@Override
+	public void display() {
+		System.out.println(" Name:"+name);	
+		System.out.println(" Id:"+id);
+		System.out.println(" Salary:"+salary);
+		
+	}
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		
+		Acceptable a2;
+		a2=new Date();
+		a2.accept(sc);
+		Date d1=(Date)a2;
+		d1.display();
+		
+		Acceptable a3;
+		a3=new Time();
+		a3.accept(sc);
+		Time d3=(Time)a3;
+		d3.display();
+		
+		Acceptable a4;
+		a4=new Employee();
+		a4.accept(sc);
+		Employee d4=(Employee)a4;
+		d4.display();	
+		
+
+	}
+
+}

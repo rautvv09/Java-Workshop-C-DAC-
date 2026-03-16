@@ -1,0 +1,23 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+enum ArithmeticOperation{
+	EXIT,ADDTION,SUBTRACTION,MULTIPLICATION,DIVISION,SQUARE,SQUAREROOT;
+}
+ 
+public class Program01 {
+
+	
+		
+			private static ArithmeticOperation menu(Scanner sc) {
+				ArithmeticOperation[] arr=ArithmeticOperation.values();
+				
+				for(ArithmeticOperation e: arr) {
+					System.out.println(e.ordinal()+"."e.name());
+				}
+				
+			}
+		
+
+}

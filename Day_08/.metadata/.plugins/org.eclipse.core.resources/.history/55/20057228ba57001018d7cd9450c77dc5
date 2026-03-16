@@ -1,0 +1,54 @@
+package com.dkte;
+
+class Person {
+	String name;
+	String address;
+	
+	public Person(String name, String address) {
+		this.name = name;
+		this.address = address;
+	}
+
+	public Person() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", address=" + address + "]";
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+		try {
+			Person p1=new Person("Shivtej","Mumbai");
+			Person p2=(Person) p1.clone();//Downcasting
+			
+			System.out.println(" p1->"+ p1);
+			System.out.println(" p2->"+ p2);
+			
+			p2.name="Rohan";
+			System.out.println("\n After Changing P2:");
+			
+			System.out.println(" p1->"+ p1);
+			System.out.println(" p2->"+ p2);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+			
+			
+			
+	}
+
+}

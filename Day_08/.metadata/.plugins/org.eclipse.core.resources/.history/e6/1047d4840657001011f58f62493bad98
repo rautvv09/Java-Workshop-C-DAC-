@@ -1,0 +1,65 @@
+package com.dkte;
+
+class InvalidTimeException extends Exception{
+	
+	public InvalidTimeException(){
+		
+	}
+	
+	public InvalidTimeException(String message) {
+		super(message);
+	}
+	
+
+}
+
+class Time{
+	private int hrs;
+	private int min;
+	
+	public int getHrs() {
+		return hrs;
+	}
+	
+	public void setHrs(int hrs) {
+		if(hrs>24 || hrs<1) {
+			throw InvalidDateException();
+		}
+		this.hrs = hrs;
+	}
+	
+	public int getMin() {
+		return min;
+	}
+	
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	@Override
+	public String toString() {
+		return "Time [hrs=" + hrs + ", min=" + min + "]";
+	}
+	
+	
+	
+	
+}
+
+
+
+public class Program02 {
+
+	
+	try{
+		
+		Time t1=new Time();
+		t1.setHrs(5);
+		t1.setMin(55);
+		System.out.println("Time"+t1);
+	  }
+	catch(Exception e) {
+		
+	}
+	
+	}

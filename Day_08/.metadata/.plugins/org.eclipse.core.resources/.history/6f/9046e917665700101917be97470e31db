@@ -1,0 +1,45 @@
+package com.dkte;
+
+class Date{
+	int day;
+	int month;
+	
+	public int getDay() {
+		return day;
+	}
+	
+	public void setDay(int day) {
+		if(day>31 ||day<0) {
+			throw new RuntimeException();
+		}
+		this.day = day;
+	}
+	
+	public int getMonth() {
+		return month;
+	}
+	
+	public void setMonth(int month) throws Exception {
+		if(month>12 || month<1)
+			throw new Exception();
+		this.month = month;
+	}
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Date d1=new Date();
+		try{
+        	 d1.setDay(5);
+             d1.setMonth(8);
+             System.out.println(d1);
+        	 
+         }
+         
+         
+	}
+
+}

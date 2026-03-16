@@ -1,0 +1,15 @@
+package com.dkte;
+
+
+class Time{
+	private int hrs;
+	private int min;
+	
+	
+}
+
+
+
+public class Program02 {
+
+}

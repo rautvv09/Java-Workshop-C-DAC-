@@ -1,0 +1,13 @@
+package com.dkte;
+
+enum ArithmeticOperation{
+	EXIT,ADDTION,SUBTRACTION,MULTIPLICATION,DIVISION,SQUARE,SQUAREROOT;
+}
+ 
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
