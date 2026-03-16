@@ -1,0 +1,29 @@
+package com.app.geometry;
+
+class Point2D{
+	private double x;
+	private double y;
+	
+	Point2D(double x,double y){
+		this.x=x;
+		this.y=y;
+	}
+	
+	public String getDetatild() {
+		return "Point Cordinates:("+ x +","+ y +")";
+	}
+	
+	public boolean isEqual(Point2D example) {
+		return this.x==example.x&&this.y==example.y;
+	}
+	
+	
+}
+public class program01 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
