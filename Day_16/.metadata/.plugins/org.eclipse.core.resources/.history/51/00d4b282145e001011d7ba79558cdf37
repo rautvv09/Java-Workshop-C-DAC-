@@ -1,0 +1,17 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+public class FileDemo02 {
+
+	public static void main(String[] args) {
+		
+		Scanner  sc=new Scanner(System.in);
+		
+		System.out.println("Ente A Text Which Is Written In The File :");
+		String path="F:\\Java Workshop\\Day_16";
+
+		
+	}
+
+}

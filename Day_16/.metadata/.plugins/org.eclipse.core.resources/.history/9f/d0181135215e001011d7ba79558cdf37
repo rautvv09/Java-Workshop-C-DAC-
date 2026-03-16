@@ -1,0 +1,45 @@
+package com.dkte;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import sun.security.krb5.internal.util.KrbDataInputStream;
+
+public class FileDemo03 {
+
+	//Writing the product objects p in the file (binary)
+	//Product(Obje) --> DataOutputStream --> FileOutputStream --> .bin Stored
+	public static void main1(String[] args) {
+		
+		Product p=new Product(12,"Iphone 16ProMax",70000);
+		
+
+		String path="F:/Java Workshop/Day_16/product12.bin";
+	
+	
+		try(FileOutputStream fout=new FileOutputStream(path)){
+			try(DataOutputStream dout=new DataOutputStream(fout)){
+				dout.writeInt(p.getId());
+				dout.writeUTF(p.getName());
+				dout.writeDouble(p.getPrice());
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		String path="F:/Java Workshop/Day_16/product12.bin";
+		
+		try(FileInputStream fin=new FileInputStream(path)){
+			try(DataInputStream din=new DataInputStream(fin)){
+				
+			}
+		}
+	}
+}

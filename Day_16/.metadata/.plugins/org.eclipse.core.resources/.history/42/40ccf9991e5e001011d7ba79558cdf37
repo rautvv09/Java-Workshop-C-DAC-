@@ -1,0 +1,12 @@
+package com.dkte;
+
+public class FileDemo03 {
+
+	public static void main(String[] args) {
+		
+		Product p=new Product(12,"Iphone 16ProMax");
+		
+
+	}
+
+}

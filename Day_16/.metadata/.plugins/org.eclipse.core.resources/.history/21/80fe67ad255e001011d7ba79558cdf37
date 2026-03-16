@@ -1,0 +1,82 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class FileDemo03 {
+
+	//Writing the product objects p in the file (binary)
+	//Product(Obje) --> DataOutputStream --> FileOutputStream --> .bin Stored
+	public static void main1(String[] args) {
+		
+		Product p=new Product(12,"Iphone 16ProMax",70000);
+		
+
+		String path="F:/Java Workshop/Day_16/product12.bin";
+	
+	
+		try(FileOutputStream fout=new FileOutputStream(path)){
+			try(DataOutputStream dout=new DataOutputStream(fout)){
+				dout.writeInt(p.getId());
+				dout.writeUTF(p.getName());
+				dout.writeDouble(p.getPrice());
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// Data In Binary Display ;  .bin file --> FileInputStream --> DataInputStream --> Product Info Display
+	public static void main2(String[] args) {
+		
+		String path="F:/Java Workshop/Day_16/product12.bin";
+		
+		try(FileInputStream fin=new FileInputStream(path)){
+			try(DataInputStream din=new DataInputStream(fin)){
+				int id=din.readInt();
+				String name=din.readUTF();
+				double price=din.readDouble();
+				Product p=new Product(id,name,price);
+				System.out.println("File Read :"+p);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		List<Product> p1=new ArrayList<>();
+		
+		p1.add(new Product(105,"pord11",500.5));
+		p1.add(new Product(10,"pord18",101.2));
+		p1.add(new Product(1887,"pord01",802.7));
+		p1.add(new Product(164,"pord77",900.4));
+		
+		
+		String path="F:/Java Workshop/Day_16/product22.bin";
+		
+		try(FileOutputStream fout=new FileOutputStream(path)){
+			try(DataOutputStream dout=new DataOutputStream(fout)){
+				for(Product p: p1) {
+					dout.writeInt(p.getId());
+					dout.writeUTF(p.getName());
+					dout.writeDouble(p.getPrice());
+				}
+				System.out.println("File Saved....");
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,67 @@
+package com.dkte;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class FileDemo02 {
+
+	//Writing in the file (User's text[char] --> PrintStream[char to bytes] --> FileOutputStream[bytes to bytes] --> In The File[Binary])
+	public static void main1(String[] args) {
+		
+		Scanner  sc=new Scanner(System.in);
+		
+		System.out.println("Ente A Text Which Is Written In The File :");
+	//	String text=sc.next();
+		
+		String path="F:/Java Workshop/Day_16/new.txt";
+
+		try(FileOutputStream fout=new FileOutputStream(path)) {
+			try(PrintStream pout=new PrintStream(fout)){
+//				pout.println(text);
+//				pout.println(1234);
+//				pout.println(3.1234);
+//				pout.println("Hello World......!");
+				
+				while(true) {
+					String line=sc.nextLine();
+					if(line.isEmpty()) {
+						break;
+					}
+					pout.println(line);
+				}
+			}//pout.close();
+			
+		}//fout.close();
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		sc.close();
+	}
+	
+	//File Reading : File --> FileInputStream -->Scanner-->User's Text
+	private static void main(String[] args) {
+		
+		String path="F:/Java Workshop/Day_16/new.txt";
+		
+		String line="";
+		
+		try(FileInputStream fin=new FileInputStream(path)){
+			try(Scanner sc=new Scanner(fin)){
+				
+				while(sc.hasNextLine()) {
+					line=sc.nextLine();
+					System.out.println(line);
+				}
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+			
+	}
+
+}
