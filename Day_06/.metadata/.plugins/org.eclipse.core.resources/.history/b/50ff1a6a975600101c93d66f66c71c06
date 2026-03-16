@@ -1,0 +1,47 @@
+package com.dkte.service;
+
+import com.dkte.entities.Employee;
+
+public class EmpService {
+
+	Employee[] employees;
+	int count;
+	
+	public EmpService(int size) {
+		employees=new Employee[size];
+		count=0;
+	}
+	
+	public boolean addEmployee(Employee emp) {
+		if(count<employees.length) {
+			employees[count++]=emp;
+			return true;
+		}
+	}
+	
+	public void displayAll() {
+	 for(int i=0;i<count;i++) {
+		 System.out.println(employees[i]);
+	}
+		
+	public Employee searchById(int id) {	
+		for(int i=0;i<count;i++) {
+			if(employees[i].getId()==id) {
+				return employees[i];
+			} 
+		}
+		return null;
+	}
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,93 @@
+package com.dkte.test;
+
+import java.util.Scanner;
+
+public class Employee extends person {
+	int empid;
+	double salary;
+	Date doj;
+	
+	public Employee() {
+		
+	}
+	
+	public Employee(String name,int dayb,int monthb,int yearb, int empid, double salary,int day,int month,int year) {
+		super(name,new Date(dayb,monthb yearb));
+		this.empid = empid;
+		this.salary = salary;
+		this.doj=new Date(day,month,year);
+	}
+
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+
+	public int getEmpid() {
+		return empid;
+	}
+
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	
+	public Date getDoj() {
+		return doj;
+	}
+	
+	public void setDoj(Date doj) {
+		this.doj=doj;
+	}
+
+	public void acceptEmp(Scanner sc) {
+		
+		
+		
+		System.out.println("\n Enter Name:");
+		name=sc.next();
+		setName(name);
+		
+		System.out.println("Enter DOB:");
+		System.out.println("Enter Day :");
+		int dayb=sc.nextInt();
+		
+		System.out.println("Enter Month :");
+		int monthb=sc.nextInt();
+		
+		System.out.println("Enter Year :");
+		int yearb=sc.nextInt();
+		
+		dob=new Date(dayb,monthb,yearb);
+		
+		System.out.println("\n Enter Employee ID:");
+		empid=sc.nextInt();
+		setEmpid(empid);
+		
+		System.out.println("\n Enter Employee Salary:");
+		salary=sc.nextDouble();
+		setSalary(salary);
+		
+		System.out.println("\n   Enter The Day Of Joinig:");
+		day=sc.nextInt();
+		
+		System.out.println("\n   Enter The Month Of Joinig:");
+		month=sc.nextInt();
+		
+		System.out.println("\n   Enter The Year Of Joinig:");
+		year=sc.nextInt();
+		
+	}
+	
+	
+}

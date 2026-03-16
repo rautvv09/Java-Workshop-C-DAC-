@@ -1,0 +1,18 @@
+package com.dkte.test;
+
+public class person {
+	String name;
+	Date dob;
+	
+	public person() {
+		
+	}
+	
+	public person(String name, Date dob) {
+	
+		this.name = name;
+		this.dob = dob;
+	}
+	
+	
+}

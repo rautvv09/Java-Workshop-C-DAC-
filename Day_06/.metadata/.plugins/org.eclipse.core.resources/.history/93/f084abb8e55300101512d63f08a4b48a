@@ -1,0 +1,49 @@
+package com.dkte.test;
+
+import java.util.Scanner;
+
+public class Program01 {
+
+	public int menu(Scanner sc) {
+		
+		System.out.println("\n------------------------------------------------\n");
+		System.out.println("   1: Add Employee \n");
+		System.out.println("   2: Display All Employees ");
+		System.out.println("   3: Search Employee by ID ");
+		System.out.println("   4: Display Employees joined in given Year ");
+		System.out.println("   5: Find Employee with Maximum Salary ");
+		System.out.println("   6: Find Employee with Minimum Salary ");
+		System.out.println("   7: Exit the Application");
+		System.out.println("\n------------------------------------------------\n");
+		
+		System.out.println("Enter Your Choice: ");
+		int ch=sc.nextInt();
+		return ch;
+	}
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		int Choice;
+		System.out.println("\nEnter The Number Of Employees:");
+		int n=sc.nextInt();
+		
+		Employee[] e=new Employee[n];
+		
+		while(Choice=menu(sc)!=0) {
+			switch(Choice) {
+			
+			case 1: System.out.println("   Add Employee:");
+					System.out.println("   Enter The Name Of Employee:");
+					for(int i=0;i<e.length;i++) {
+						e[i].acceptEmp(sc);
+					}
+					
+			
+			
+			}
+		}
+
+	}
+
+}

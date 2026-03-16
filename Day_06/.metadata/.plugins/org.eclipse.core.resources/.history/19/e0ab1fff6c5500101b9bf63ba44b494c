@@ -1,0 +1,8 @@
+package com.dkte.test;
+
+public class person {
+	String name;
+	Date dob;
+	
+	
+}

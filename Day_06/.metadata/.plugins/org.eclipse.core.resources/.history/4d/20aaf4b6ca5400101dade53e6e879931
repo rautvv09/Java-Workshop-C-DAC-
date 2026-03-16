@@ -1,0 +1,126 @@
+package com.dkte.test;
+
+import java.util.Scanner;
+
+public class Program01 {
+
+	public static int menu(Scanner sc) {
+		
+		System.out.println("\n------------------------------------------------\n");
+		System.out.println("   1: Add Employee ");
+		System.out.println("   2: Display All Employees ");
+		System.out.println("   3: Search Employee by ID ");
+		System.out.println("   4: Display Employees joined in given Year ");
+		System.out.println("   5: Find Employee with Maximum Salary ");
+		System.out.println("   6: Find Employee with Minimum Salary ");
+		System.out.println("   7: Exit the Application");
+		System.out.println("\n------------------------------------------------\n");
+		
+		System.out.println("Enter Your Choice: ");
+		int ch=sc.nextInt();
+		return ch;
+	}
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		int Choice;
+		System.out.println("\nEnter The Number Of Employees:");
+		int n=sc.nextInt();
+		
+		Employee[] e=new Employee[n];
+		
+		while((Choice=menu(sc))!=0) {
+			switch(Choice) {
+			
+			case 1: System.out.println("   Add Employee:");
+					for(int i=0;i<e.length;i++) {
+						if(e[i]==null && i<n) {
+							e[i]=new Employee();
+							e[i].acceptEmp(sc);
+						}	
+					}
+					break;
+					
+			case 2: System.out.println("   Displaying All Employees :");
+			        for(int i=0;i<e.length;i++) {
+		             		if(e[i]!=null) {
+		             			System.out.println("\n   Employee Name: "+e[i].getName());
+		             			System.out.println("\n   Employee ID: "+e[i].getEmpid());
+		              			System.out.println("\n   Employee Salary: "+e[i].getSalary());
+		                     }	
+			           }
+			          break;
+			
+			
+			case 3: System.out.println("   3: Search Employee by ID:");
+			        System.out.println("   Enter ID Of Employee:");
+			        int id=sc.nextInt();
+			        for(int i=0;i<e.length;i++) {
+				            
+				           if(e[i]!=null&& id==e[i].getEmpid()){
+				        	    System.out.println("\n   Employee Name: "+e[i].getName());
+		            			System.out.println("\n   Employee Salary: "+e[i].getSalary());
+				              }	
+			             }
+			         break;
+			
+			
+			case 4: System.out.println("   4: Displaying Employees joined in given Year");
+			        System.out.println("   Enter Year:");
+			        int yr=sc.nextInt();
+			        
+			        for(int i=0;i<e.length;i++) {
+			             	
+				           if(e[i]!=null&& e[i].getYear()==yr){
+				        	    System.out.println("\n   Employee Name: "+e[i].getName());	
+		             			System.out.println("\n   Employee ID: "+e[i].getEmpid());
+		             			System.out.println("\n   Employee Salary: "+e[i].getSalary());
+				           }	
+			           }
+		           	break;
+		 	
+			
+			
+			case 5: System.out.println("   Finding Employee with Maximum Salary Details :");
+					Employee maxEmp = e[0];
+					
+					for(int i=0;i<e.length;i++) {
+						
+						if(e[i]!=null) {
+							if(maxEmp.getSalary()>e[i].getSalary()) {
+								maxEmp=e[i];
+							}
+						}	
+					}
+					System.out.println("Emplyee Name: "+maxEmp.getName()+"\nEmplyee ID: "+maxEmp.getEmpid()+"\nEmplyee Salary: "+maxEmp.getSalary());
+					break;
+			
+			
+			case 6: System.out.println("   Finding Employee with Minimum Salary Details :");
+					Employee minEmp = e[0];
+					
+					for(int i=0;i<e.length;i++) {
+						
+						if(e[i]!=null) {
+							if(minEmp.getSalary()<e[i].getSalary()) {
+								minEmp=e[i];
+							}
+						}	
+					}
+					System.out.println("Emplyee Name: "+minEmp.getName()+"\nEmplyee ID: "+minEmp.getEmpid()+"\nEmplyee Salary: "+minEmp.getSalary());
+					break;
+			
+			
+			case 7: System.out.println("   Exiting From Program....!!!");
+			        break;
+			
+			default: System.out.println("Enter The Valid Choice....!");
+			         break;
+			
+			}
+		}
+
+	}
+
+}

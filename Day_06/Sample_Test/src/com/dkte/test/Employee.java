@@ -1,0 +1,116 @@
+package com.dkte.test;
+
+import java.util.Scanner;
+
+public class Employee {
+    private int empid;
+    private double salary;
+    private Date doj;       // Date of Joining
+    private String name;
+    private String dept;
+    private Date dob;       // Date of Birth
+
+    // Constructors
+    public Employee() {}
+
+    public Employee(int empid, double salary, Date doj, String name, String dept, Date dob) {
+        this.empid = empid;
+        this.salary = salary;
+        this.doj = doj;
+        this.name = name;
+        this.dept = dept;
+        this.dob = dob;
+    }
+
+    // Getters and Setters
+    public int getEmpid() { 
+    	return empid;
+    	}
+    
+    public void setEmpid(int empid) { 
+    	this.empid = empid; 
+    	}
+
+    public double getSalary() { 
+    	return salary;
+    	}
+    
+    public void setSalary(double salary) { 
+    	this.salary = salary; 
+    	}
+
+    public Date getDoj() { 
+    	return doj;
+    	}
+    
+    public void setDoj(Date doj) { 
+    	this.doj = doj; 
+    	}
+
+    public String getName() {
+    	return name;
+    	}
+    
+    public void setName(String name) { 
+    	this.name = name;
+    	}
+
+    public String getDept() { 
+    	return dept;
+    	}
+    
+    public void setDept(String dept) {
+    	this.dept = dept; 
+    	}
+
+    public Date getDob() {
+    	return dob;
+    	}
+    
+    public void setDob(Date dob) { 
+    	this.dob = dob;
+    	}
+
+    // Accepinput from user
+    public void acceptEmp(Scanner sc) {
+        System.out.print("Enter Name: ");
+        name = sc.next();
+
+        System.out.print("Enter Department: ");
+        dept = sc.next();
+
+        System.out.print("Enter Employee ID: ");
+        empid = sc.nextInt();
+
+        System.out.print("Enter Salary: ");
+        salary = sc.nextDouble();
+
+        System.out.println("Enter Date of Birth:");
+        System.out.print("  Day: ");
+        int bDay = sc.nextInt();
+        System.out.print("  Month: ");
+        int bMonth = sc.nextInt();
+        System.out.print("  Year: ");
+        int bYear = sc.nextInt();
+        dob = new Date(bDay, bMonth, bYear);
+
+        System.out.println("Enter Date of Joining:");
+        System.out.print("  Day: ");
+        int jDay = sc.nextInt();
+        System.out.print("  Month: ");
+        int jMonth = sc.nextInt();
+        System.out.print("  Year: ");
+        int jYear = sc.nextInt();
+        doj = new Date(jDay, jMonth, jYear);
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+               "\nDate Of Birth: " + dob +
+               "\nEmployee ID: " + empid +
+               "\nEmployee Salary: " + salary +
+               "\nDate Of Joining: " + doj +
+               "\nDepartment: " + dept;
+    }
+}

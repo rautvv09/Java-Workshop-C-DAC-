@@ -1,0 +1,16 @@
+package com.dkte.entities;
+
+
+
+public class Employee {
+
+	     int empid;
+	     double salary;
+	     Date doj;      
+	     String name;
+	     String dept;
+	     Date dob;
+	     
+	     
+	
+}

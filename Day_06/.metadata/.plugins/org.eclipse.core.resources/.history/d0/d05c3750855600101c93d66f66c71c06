@@ -1,0 +1,13 @@
+package com.dkte.service;
+
+import com.dkte.entities.Person;
+
+public class PerService {
+
+	public PerService() {
+		
+		Person p=new Person();
+		
+	}
+
+}

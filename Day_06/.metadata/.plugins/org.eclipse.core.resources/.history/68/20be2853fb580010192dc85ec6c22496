@@ -1,0 +1,96 @@
+package com.tester;
+
+import java.util.Scanner;
+
+public class TestPointArray1 {
+
+	public static int menu(Scanner sc) {
+		System.out.println("-----------------------------------------------");
+		System.out.println("\n   1: Display details of a specific point ");
+		System.out.println("\n   2: Display x, y co-ordinates of all points ");
+		System.out.println("\n   3: User i/p : 2 indices for the points ");
+		System.out.println("\n   4: Exit ");
+		System.out.println("------------------------------------------------\n");
+		System.out.println("Enter Your Choice:");
+		int ch=sc.nextInt();
+		
+		return ch;
+	}
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int i=0;
+		int choice;
+		System.out.println("Enter The Number Of Point You Want To Plot:");
+		int n=sc.nextInt();
+		
+		Point2D[] P=new Point2D[n];
+		for(int j=0;j<n;j++) {
+			System.out.println("Enter x And y For Point:"+(j+1));
+			int x=sc.nextInt();
+			int y=sc.nextInt();
+			P[j]=new Point2D(x,y);
+		}
+		
+
+		
+		while((choice=menu(sc))!=0) {
+			switch(choice) {
+			  
+			case 1:     System.out.println("\n   Enter The Index Of Point To Display ");
+						int idx=sc.nextInt();
+						if(idx<n) {
+							for(i=0;i<P.length;i++) {
+								if(idx==i && P[i]!=null) {
+									System.out.println(P[i].getX());
+									System.out.println(P[i].getY());
+								}
+							}
+						}else {
+							System.out.println("   Enter The Valid Index.......!");
+						}
+				        break;
+				    
+			case 2:		System.out.println("\n    Displaying x, y co-ordinates of all points \n");
+		            	for(i=0;i<P.length;i++) {
+		            			if(P[i]!=null) {
+		            				System.out.println("Point "+(i+1));
+				            		System.out.println(" Point x"+(i+1)+":"+P[i].getX());
+		            				System.out.println(" Point y"+(i+1)+":"+P[i].getY());
+		            				System.out.println();
+		            			}
+		            			
+			             }
+			             break;
+			    
+			case 3:     System.out.println("\n    User i/p : 2 indices for the points \n");
+			            System.out.print("Enter index of first point: ");
+			            int index1 = sc.nextInt();
+			        
+		            	System.out.print("Enter index of second point: ");
+		            	int index2 = sc.nextInt();
+ 
+		            	if((index1>=0 && index1<P.length)&&(index2>=0 && index2<P.length) ) {
+		            		if(!P[index1].isEqual(P[index2])) {
+		            			System.out.println("Distance Between Two Points: "+P[index1].CalDistance(P[index2]));
+		            		}else {
+		            			System.out.println("Both Points Are At Same Location");
+		            		}
+		            	}else {
+		            		System.out.println("Enter A Valid Index....");
+		            	}
+                         break;
+			    
+			    
+			case 4:		System.out.println("    Exiting From The Program...............");
+			             break;
+				    
+			default:     System.out.println("Enter A Valid Choice.....!");
+				         break;    
+			}
+		}
+	
+	}
+
+}

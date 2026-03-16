@@ -1,0 +1,9 @@
+package com.dkte.service;
+
+public class EmpService {
+
+	public EmpService() {
+		
+	}
+
+}

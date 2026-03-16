@@ -1,0 +1,14 @@
+package com.dkte.entities;
+
+import com.dkte.test.Date;
+
+public class Employee {
+
+	    private int empid;
+	    private double salary;
+	    private Date doj;       // Date of Joining
+	    private String name;
+	    private String dept;
+	    private Date dob;
+	
+}

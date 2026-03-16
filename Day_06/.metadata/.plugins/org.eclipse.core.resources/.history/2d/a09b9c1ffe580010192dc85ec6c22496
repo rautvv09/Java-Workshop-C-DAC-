@@ -1,0 +1,14 @@
+package com.dkte;
+
+public class Employee {
+
+	int id;
+	String dept;
+	double salary;
+	Date doj;
+	
+	public Employee() {
+
+	}
+
+}

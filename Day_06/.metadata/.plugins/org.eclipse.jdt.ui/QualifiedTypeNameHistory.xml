@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.security.PublicKey"/>
+    <fullyQualifiedTypeName name="com.dkte.demo02.Employee"/>
+    <fullyQualifiedTypeName name="com.dkte.demo04.Employee"/>
+    <fullyQualifiedTypeName name="com.dkte.Employee"/>
+    <fullyQualifiedTypeName name="com.dkte.demo02.Manager"/>
+    <fullyQualifiedTypeName name="sun.security.provider.JavaKeyStore.CaseExactJKS"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+</qualifiedTypeNameHistroy>

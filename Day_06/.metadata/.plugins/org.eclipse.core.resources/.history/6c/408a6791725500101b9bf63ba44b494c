@@ -1,0 +1,15 @@
+package com.dkte.test;
+
+import java.util.Scanner;
+
+public class Employee {
+	int empid;
+	double salary;
+	Date doj;
+	person name;
+	String dept;
+	
+	
+	
+	
+}

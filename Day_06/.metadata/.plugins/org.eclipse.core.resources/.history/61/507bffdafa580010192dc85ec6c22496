@@ -1,0 +1,58 @@
+package com.tester;
+
+public class Point2D {
+
+	float x;
+	float y;
+	
+	public Point2D() {
+		
+	}
+	
+	public Point2D(float x,float y) {
+		this.x=x;
+		this.y=y;
+	}
+	
+	public void setX(float x) {
+		this.x=x;
+	}
+	
+	public float getX() {
+		return this.x;
+	}
+
+	public float getY() {
+		return this.y;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
+	
+	@Override
+	public String toString() {
+		return "Point Cordinates : x="+this.x+"y="+this.y;
+	}
+	
+	@Override
+	public boolean isEqual(Point2D p){
+		if(p==null) {
+			return false;
+		}
+		else if(this==p) {
+			return true;
+		}
+		else if(p instanceof Point2D) {
+			if((this.x==p.x)&&(this.y==p.y))
+				return true;
+		}
+		return false;
+	}
+	
+	public double CalDistance(Point2D p) {
+		return Math.sqrt(Math.pow(this.x - p.x,2) + Math.pow(this.y - p.y,2));
+
+	}
+	
+	}

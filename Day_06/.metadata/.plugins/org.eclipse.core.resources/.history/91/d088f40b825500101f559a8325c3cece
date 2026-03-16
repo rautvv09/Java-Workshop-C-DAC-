@@ -1,0 +1,5 @@
+package com.dkte.entities;
+
+public class Person {
+
+}

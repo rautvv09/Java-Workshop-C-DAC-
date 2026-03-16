@@ -1,0 +1,15 @@
+package com.dkte.service;
+
+import com.dkte.entities.Person;
+
+public class PerService {
+
+	public void displayPerson() {
+		System.out.println("Name:"+Person.getName());
+	}
+		
+		Person p=new Person();
+		
+	
+
+}

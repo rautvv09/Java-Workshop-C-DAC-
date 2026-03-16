@@ -1,0 +1,84 @@
+package com.dkte.entities;
+
+public class Employee {
+
+	     int empid;
+	     double salary;
+	     Date doj;      
+	     String name;
+	     String dept;
+	     
+	     public Employee() {
+				
+		 }
+     
+	     
+		 public Employee(int empid, double salary, Date doj, String name, String dept) {
+			this.empid = empid;
+			this.salary = salary;
+			this.doj = doj;
+			this.name = name;
+			this.dept = dept;
+		 }
+
+
+		 public int getEmpid() {
+			 return empid;
+		 }
+
+
+		 public void setEmpid(int empid) {
+			 this.empid = empid;
+		 }
+
+
+		 public double getSalary() {
+			 return salary;
+		 }
+
+
+		 public void setSalary(double salary) {
+			 this.salary = salary;
+		 }
+
+
+		 public Date getDoj() {
+			 return doj;
+		 }
+
+
+		 public void setDoj(Date doj) {
+			 this.doj = doj;
+		 }
+
+
+		 public String getName() {
+			 return name;
+		 }
+
+
+		 public void setName(String name) {
+			 this.name = name;
+		 }
+
+
+		 public String getDept() {
+			 return dept;
+		 }
+
+
+		 public void setDept(String dept) {
+			 this.dept = dept;
+		 }
+	     
+	     public String toString() {
+	    	 return "\nName:"+name+
+	    			 "\nEmployee ID:"+empid+
+	    			 "\nEmloyee Salary:"+salary+
+	    	 		 "\nEmploee's Date Of Joining:"+doj+
+	    	 		  "\nEmployee's Department:"+dept;
+	     }
+		
+	     
+	
+}

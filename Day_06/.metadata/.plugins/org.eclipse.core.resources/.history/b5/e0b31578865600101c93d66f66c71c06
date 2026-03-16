@@ -1,0 +1,15 @@
+package com.dkte.service;
+
+import com.dkte.entities.Employee;
+
+public class EmpService {
+
+	public EmpService() {
+		
+		Employee e=new Employee();
+		
+		
+		
+	}
+
+}

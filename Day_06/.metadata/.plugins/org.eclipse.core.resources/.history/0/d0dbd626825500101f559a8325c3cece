@@ -1,0 +1,9 @@
+package com.dkte.entities;
+
+public class Person {
+
+	int name;
+	Date dob;
+	
+	
+}

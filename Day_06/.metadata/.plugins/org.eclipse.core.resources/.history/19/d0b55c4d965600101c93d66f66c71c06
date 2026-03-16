@@ -1,0 +1,27 @@
+package com.dkte.service;
+
+import com.dkte.entities.Employee;
+
+public class EmpService {
+
+	Employee[] emp;
+	int count=0;
+	
+	public EmpService(int size) {
+		emp=new Employee[size];
+	}
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
