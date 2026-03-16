@@ -1,0 +1,12 @@
+package com.dkte;
+
+public class program01 {
+
+	public static void main(String[] args) {
+		int num1 = 10;
+		double num2 = 10.25;
+
+		System.out.println("Hello world");
+	}
+
+}

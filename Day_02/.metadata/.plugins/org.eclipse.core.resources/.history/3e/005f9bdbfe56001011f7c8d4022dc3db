@@ -1,0 +1,29 @@
+package com.sunbeam;
+
+class Time {
+	private int hr;
+	private int min;
+
+	public Time() {
+		this(10, 10); // ctor chaining
+	}
+
+	public Time(int hr, int min) {
+		this.hr = hr;
+		this.min = min;
+	}
+
+	public Time(int value) {
+		this(value, value); // It should be the first statement in the ctor body
+		System.out.println("Hello");
+	}
+}
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		Time t1 = new Time(1,45);
+		
+	}
+
+}
