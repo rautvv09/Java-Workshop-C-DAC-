@@ -1,0 +1,42 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+public class Employee {
+
+	int empid;
+	String name;
+	double salary;
+	Date doj;
+	Vehicle Veh;
+	
+	public Employee() {
+		doj =new Date();
+	}
+	
+	public Employee(int empid,String name,double salary,int day,int month,int year) {
+		this.empid=empid;
+		this.name=name;
+		this.salary=salary;
+		doj =new Date(day,month,year);
+	}
+	
+	public void acceptEmployee(Scanner sc) {
+		System.out.println("Enter Employee ID:");
+		empid=sc.nextInt();
+		
+		System.out.println("Enter Employee Name:");
+		name=sc.nextLine();
+		
+		System.out.println("Enter Employee Salary:");
+		salary=sc.nextDouble();
+		
+		System.out.println("Enter Employee Date Of Joining:");
+		doj.acceptDate(sc);
+	}
+	
+	public void addVehicle(sc) {
+		Veh=new Vehicle();
+		Veh.acceptVehicle(sc);
+	}
+}
