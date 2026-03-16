@@ -1,0 +1,18 @@
+package com.dkte;
+
+
+class Employee implements Comparable<Employee>{
+	int eid;
+	String name;
+	double salary;
+	
+	
+}
+public class Program01 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

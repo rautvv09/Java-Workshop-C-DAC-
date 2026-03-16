@@ -1,0 +1,14 @@
+package com.dkte;
+
+import java.util.Collection;
+
+public class Program01 {
+
+	public static void main(String[] args) {
+
+		Collection<Integer> c1=new ArrayList<>();
+		
+
+	}
+
+}

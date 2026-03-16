@@ -1,0 +1,28 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Program02 {
+
+	public static void main(String[] args) {
+		Collection<Integer> c1=new ArrayList<>();
+		
+		c1.add(10);
+		c1.add(20);
+		c1.add(30);
+		c1.add(40);
+		c1.add(50);
+		
+		System.out.println("Displaying Elements :");
+		for(int ele:c1) {
+			System.out.println("Elements :"+ele);
+		}
+		
+		System.out.println("c1 Contains 10 :"+c1.contains(10));
+		System.out.println("c1 Contains 50 :"+c1.contains(50));
+		System.out.println("c1 Contains 550 :"+c1.contains(550));
+		System.out.println("c1 Contains 15 :"+c1.contains(15));
+	}
+
+}

@@ -1,0 +1,54 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+public class LabStaff extends Staff {
+
+	int salary;
+
+	public LabStaff(int id, String name, int salary) {
+		super(id, name);
+		this.salary = salary;
+	}
+
+	public LabStaff(int id, String name) {
+		super(id, name);
+	}
+
+	public LabStaff() {
+		
+	}
+	
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary)throws StaffException {
+		if(salary<0) {
+			 throw new StaffException("");
+		}
+     	this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return "\n LabStaff [salary=" + salary + ", id=" + id + ", name=" + name + "]";
+	}
+	
+	public LabStaff acceptLab(Scanner sc) throws StaffException{
+		System.out.println("Add Teaching Staff:");
+		System.out.print("Enter ID: ");
+		id = sc.nextInt();
+
+		System.out.print("Enter Name: ");
+		name = sc.next();
+
+		System.out.print("Enter Salary: ");
+		noOfHours = sc.nextInt();
+
+
+		TeachingStaff t=new TeachingStaff(id, name,noOfHours,chargesPerHour);
+		return t;
+	}
+	
+}

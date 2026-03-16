@@ -1,0 +1,162 @@
+package com.dkte;
+
+import java.util.Scanner;
+
+class StaffException extends Exception{
+	
+	private static final long serialVersionUID = 1L;
+
+	public StaffException() {
+		super();
+	}
+	
+   public StaffException(String message)
+   {
+	   super(message);
+	}
+
+	
+}
+public class Tester {
+
+	public static int menu(Scanner sc) {
+		System.out.println("\n--------------------------------------------------------");
+		System.out.println("0: Exit");
+		System.out.println("1: Add Teaching staff");
+		System.out.println("2: Add Lab staff");
+		System.out.println("3: Display all Teaching staff");
+		System.out.println("4: Display all Lab staff");
+		System.out.println("5: Find specific Teaching staff");
+		System.out.println("6: Find specific Lab staff");
+		System.out.println("7: Display Teaching staff who worked for highest hours");
+		System.out.println("8: Display Lab staff who has lowest salary");
+		System.out.println("--------------------------------------------------------");
+		System.out.print("Enter Choice: ");
+		return sc.nextInt();
+	}
+
+	public static void main(String[] args) throws StaffException {
+		Scanner sc = new Scanner(System.in);
+		Staff[] s = new Staff[10];
+		int i = 0;
+
+		int choice;
+		while ((choice = menu(sc)) != 0) {
+			switch (choice) {
+			case 1:
+					if (i < s.length) {
+						try {
+						    TeachingStaff t = new TeachingStaff();
+						    s[i++] = t.acceptTeaching(sc);
+						    
+						} catch (StaffException e) {
+						    throw new StaffException("Invalid Staff Data: " + e.getMessage());
+						}
+	
+					} else {
+						System.out.println("Staff array is full.");
+					}
+						break;
+
+			case 2:
+					if (i < s.length) {
+						try {
+						    LabStaff l = new LabStaff();
+						    s[i] = l.acceptLab(sc);
+						} catch (StaffException e) {
+						    throw new StaffException("Invalid Staff Data: " + e.getMessage());
+						}
+					} else {
+						System.out.println("Staff array is full.");
+					}
+					break;
+
+			case 3:
+					System.out.println("All Teaching Staff:");
+					for (int j = 0; j < i; j++) {
+						if (s[j] instanceof TeachingStaff)
+							System.out.println(s[j]);
+					}
+					break;
+
+			case 4:
+					System.out.println("All Lab Staff:");
+					for (int j = 0; j < i; j++) {
+						if (s[j] instanceof LabStaff)
+							System.out.println(s[j]);
+					}
+					break;
+
+			case 5:
+				System.out.print("Enter Teaching Staff ID to search: ");
+				int searchTid = sc.nextInt();
+				boolean Tfound = false;
+				for (int j = 0; j < i; j++) {
+					if (s[j] instanceof TeachingStaff && s[j].getId() == searchTid) {
+						System.out.println(s[j]);
+						Tfound = true;
+						break;
+					}
+				}
+				if (!Tfound)
+					System.out.println("Teaching staff not found............");
+				break;
+
+			case 6:
+				System.out.print("Enter Lab Staff ID to search: ");
+				int searchLid = sc.nextInt();
+				boolean Lfound = false;
+				for (int j = 0; j < i; j++) {
+					if (s[j] instanceof LabStaff && s[j].getId() == searchLid) {
+						System.out.println(s[j]);
+						Lfound = true;
+						break;
+					}
+				}
+				if (!Lfound)
+					System.out.println("Lab staff not found..........");
+				break;
+
+			case 7:
+				int maxHours = 0;
+				TeachingStaff max = null;
+				for (int j = 0; j < i; j++) {
+					if (s[j] instanceof TeachingStaff) {
+						TeachingStaff ts = (TeachingStaff) s[j];
+						if (ts.getNoOfHours() > maxHours) {
+							maxHours = ts.getNoOfHours();
+							max = ts;
+						}
+					}
+				}
+				if (max != null)
+					System.out.println("Teaching Staff with highest hours:\n" + max);
+				else
+					System.out.println("No Teaching Staff found............");
+				break;
+
+			case 8:
+				int minSalary = -1;
+				LabStaff min = null;
+				for (int j = 0; j < i; j++) {
+					if (s[j] instanceof LabStaff) {
+						LabStaff ls = (LabStaff) s[j];
+						if (ls.getSalary() < minSalary) {
+							minSalary = ls.getSalary();
+							min = ls;
+						}
+					}
+				}
+				if (min != null)
+					System.out.println("Lab Staff with lowest salary:\n" + min);
+				else
+					System.out.println("No Lab Staff found.....................");
+				break;
+
+			default:
+				System.out.println("Invalid choice...... Try again.........");
+			}
+		}
+		sc.close();
+	}
+}

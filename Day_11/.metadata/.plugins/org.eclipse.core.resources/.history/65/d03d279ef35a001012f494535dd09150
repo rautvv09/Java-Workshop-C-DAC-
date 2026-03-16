@@ -1,0 +1,25 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class Program05 {
+
+	public static void main(String[] args) {
+		
+		Collection<Integer> c=new ArrayList<>();
+		
+		c.add(10);
+		c.add(20);
+		c.add(30);
+		c.add(40);
+		
+		System.out.println("Size Of c :"+c.size());
+		
+		Iterator<Integer> itr=new c.iterator();
+		
+		while()
+	}
+
+}

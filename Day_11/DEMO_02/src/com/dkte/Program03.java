@@ -1,0 +1,34 @@
+package com.dkte;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Program03 {
+
+	public static void main(String[] args) {
+		
+		Collection<Integer> c1=new ArrayList<>();
+	
+		c1.add(10);	
+		c1.add(20);
+		c1.add(30);
+		c1.add(40);
+		c1.add(50);
+
+		System.out.println("\nC1 Size :"+c1.size());
+		System.out.println("\nDisplaying Element :");
+		for(Integer ele:c1) {
+			System.out.println("Element :"+ele);
+		}
+		
+		c1.clear();
+
+		System.out.println("\nDisplaying After (Clear Method) Element :");
+		for(Integer ele:c1) {
+			System.out.println("Element :"+ele);
+		}
+		
+		System.out.println("\nC1 Size :"+c1.size());
+	}
+
+}
